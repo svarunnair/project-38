@@ -53,7 +53,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+        display:"none"
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -65,8 +67,13 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     alignItems:"center",
     
     [theme.breakpoints.down("xl")]: {},
-    [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("lg")]: {
+        
+    },
+    [theme.breakpoints.down("md")]: {
+        width:"60%",
+        paddingLeft:10,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -90,7 +97,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+        display:"none"
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));

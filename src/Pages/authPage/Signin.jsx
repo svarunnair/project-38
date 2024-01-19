@@ -1,6 +1,7 @@
 import { InputOutlined } from '@mui/icons-material';
 import { Box, Button, OutlinedInput, Typography, styled } from '@mui/material';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -100,6 +101,12 @@ cursor:"pointer",
       }));
 
 function Signin() {
+
+    const navigate=useNavigate('')
+
+    const handleCreate=()=>{
+        navigate('/signup')
+    }
   return (
     <OuterContainer>
 
@@ -119,7 +126,7 @@ function Signin() {
             <OutlinedInput sx={{width:"100%",height:35,borderRadius:0}}/>
 
             <ButtonBox sx={{color:'white',background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
-            <TextBox>Create Account</TextBox>
+            <TextBox onClick={handleCreate}>Create Account</TextBox>
             </InputDiv>
         </InnerDiv>
 
