@@ -5,6 +5,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
 const OuterContainer = styled(Box)(({ theme }) => ({
 
     // border:"2px solid black",
@@ -20,6 +21,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid red",
     display:"flex",
     background:"#0373bc",
+    // background:"rgba(255, 255, 255, 0.5)",
+    // position:"absolute",
+
     height:100,
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -172,6 +176,13 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
 function NavBar() {
+    const navigate=useNavigate()
+
+
+
+    const handleIcon=()=>{
+        navigate('/home')
+    }
   return (
     <OuterContainer>
         <InnerDiv>
@@ -186,7 +197,7 @@ function NavBar() {
            </BoxTwo>
 
            <BoxThree>
-            <IconBox  as={"img"} src="https://skybags.co.in/cdn/shop/files/Image_1_0c0dbe99-a20b-4621-a8cf-54854a033dbd_140x.svg?v=1695290322"/>
+            <IconBox onClick={handleIcon}  as={"img"} src="https://skybags.co.in/cdn/shop/files/Image_1_0c0dbe99-a20b-4621-a8cf-54854a033dbd_140x.svg?v=1695290322"/>
            </BoxThree>
 
            <BoxFour>
