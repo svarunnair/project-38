@@ -2,6 +2,7 @@ import { Box, Button, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../Redux/data/action";
+import { useNavigate } from "react-router-dom";
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   // border:"2px solid black",
@@ -41,6 +42,8 @@ const MenuBox = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   gap: 10,
   paddingLeft: 35,
+ 
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -50,7 +53,10 @@ const MenuBox = styled(Box)(({ theme }) => ({
 }));
 
 const DataMap = styled(Box)(({ theme }) => ({
-      border: "2px solid green",
+      // border: "2px solid green",
+      background:"#F5F5F5	",
+      borderRadius:20,
+
       
     
       [theme.breakpoints.down("xl")]: {},
@@ -61,7 +67,12 @@ const DataMap = styled(Box)(({ theme }) => ({
     }));
 
 const ItemDiv = styled(Box)(({ theme }) => ({
-//   border: "2px solid black",
+  // border: "2px solid black",
+  display:"grid",
+  gridTemplateColumns:"repeat(3,1fr)",
+  padding:30,
+  gap:10,
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -72,6 +83,7 @@ const ItemDiv = styled(Box)(({ theme }) => ({
 
 const ImageBox = styled(Box)(({ theme }) => ({
     //   border: "2px solid black",
+    width:"100%",
     
       [theme.breakpoints.down("xl")]: {},
       [theme.breakpoints.down("lg")]: {},
@@ -104,12 +116,24 @@ const DetailBox = styled(Typography)(({ theme }) => ({
 function Students() {
   const mainData = useSelector((store) => store.data.getMainData);
   const dispatch = useDispatch();
+  const navigate=useNavigate()
+
+
+  const handleItem=(id)=>{
+    navigate(`/detail/${id}`)
+  }
 
   console.log("maiData", mainData);
 
   useEffect(() => {
     dispatch(getData());
   }, []);
+
+  // useEffect(()=>{
+  //   if(Object.keys(mainData).length>0){
+  //     setData(mainData)
+  //   }
+  // },[mainData])
 
   return (
     <OuterContainer>
@@ -184,16 +208,19 @@ function Students() {
           </ButtonBox>
         </MenuBox>
 
+
         <ItemDiv>
-    
-    {mainData.map((item)=>(
-        <DataMap>
-            <ImageBox as={"img"} src={item.images[0]}/>
-            <DetailBox>{item.name}</DetailBox>
-        </DataMap>
-    ))}
-                   
+         {mainData?.map((item)=>(
+          <DataMap>
+          <ImageBox onClick={()=>handleItem(item.id)} as={"img"} src={item?.images[0]}/>
+          <DetailBox>{item?.name}</DetailBox>
+          <DetailBox>₹{item?.price}.00</DetailBox>
+          </DataMap>
+         ))}
+   
+           
         </ItemDiv>
+        
       </InnerDiv>
     </OuterContainer>
   );
