@@ -10,11 +10,11 @@ import { useLocation } from 'react-router-dom';
 function App() {
   const path=useLocation()
 
-  console.log("pathh",path.pathname)
+
 
   return (
     <div className="App">
-      {path.pathname!=='/detail/:id'&&<NavBar/>}
+      { <NavBar/>}
     <PublicRoutes/>
     <Footer/>
     </div>

@@ -284,6 +284,13 @@ function Detail() {
   useEffect(()=>{
     dispatch(getDetail(params.id))
   },[])
+
+
+
+  useEffect(() => {
+    return sessionStorage.setItem("show",null)
+   }, []);
+
   return (
     <OuterContainer>
 

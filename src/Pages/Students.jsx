@@ -121,6 +121,8 @@ function Students() {
 
   const handleItem=(id)=>{
     navigate(`/detail/${id}`)
+    sessionStorage.setItem("show", "one")
+
   }
 
   console.log("maiData", mainData);
@@ -128,6 +130,9 @@ function Students() {
   useEffect(() => {
     dispatch(getData());
   }, []);
+
+
+
 
   // useEffect(()=>{
   //   if(Object.keys(mainData).length>0){

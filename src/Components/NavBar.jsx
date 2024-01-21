@@ -5,7 +5,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 const OuterContainer = styled(Box)(({ theme }) => ({
 
     // border:"2px solid black",
@@ -180,11 +180,21 @@ function NavBar() {
 
 
 
+
+
     const handleIcon=()=>{
         navigate('/home')
     }
+
+
+    let show = sessionStorage.getItem("show")
+
+console.log("show",show)
+
   return (
-    <OuterContainer>
+   <>
+
+     { show==="one" ? <></>:  <OuterContainer>
         <InnerDiv>
            <BoxOne>
            <SearchIcon sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
@@ -215,7 +225,9 @@ function NavBar() {
 
         </InnerDiv>
 
-    </OuterContainer>
+    </OuterContainer>}
+
+    </>
   )
 }
 
