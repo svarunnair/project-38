@@ -254,7 +254,6 @@ function Detail() {
     const detail=useSelector((store)=>store.data.getDetailData)
     const dispatch=useDispatch()
     const [data,setData]=useState('')
-    const [media,setMedia]=useState('')
     const [arrow,setArrow]=useState(true)
     const mainData=useSelector((store)=>store.data.getMainData)
 
@@ -275,11 +274,11 @@ function Detail() {
   },[detail])
 
   
-  useEffect(()=>{
-    if(Object.keys(mainData).length>0){
-     setMedia(mainData.images[0])
-    }
- },[mainData])
+//   useEffect(()=>{
+//     if(Object.keys(mainData).length>0){
+//      setMedia(mainData.images[0])
+//     }
+//  },[mainData])
 
 
   useEffect(()=>{
@@ -387,7 +386,9 @@ function Detail() {
           {mainData?.slice(0,5).map((item)=>(
             <MapList>
 
-              {/* <ImageBox as={"img"} src={item}/> */}
+              <ImageBox as={"img"} src={item.images[0]}/>
+              <TextDetail>{item.name}</TextDetail>
+              <TextDetail>₹{item.price}.00</TextDetail>
             
             </MapList>
           ))}

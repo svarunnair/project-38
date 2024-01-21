@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 function App() {
   const path=useLocation()
 
-  console.log("pathh",path)
+  console.log("pathh",path.pathname)
 
   return (
     <div className="App">
