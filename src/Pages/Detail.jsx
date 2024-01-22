@@ -103,7 +103,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 
   const DetailImage = styled(Box)(({ theme }) => ({
-    // border:"1px solid blue",
+    border:"1px solid blue",
     borderRadius:10,
     width:"10%",
     background:"white",
@@ -144,7 +144,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const ReviewBox = styled(Box)(({ theme }) => ({
 
-    // border:"2px solid red",
+    border:"2px solid red",
     background:"#2AAA8A",
     width:"100%",
     height:650,
@@ -284,6 +284,9 @@ function Detail() {
   useEffect(()=>{
     dispatch(getDetail(params.id))
   },[])
+
+
+  console.log("getDetail",getDetail)
 
 
 
