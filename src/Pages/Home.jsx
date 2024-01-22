@@ -295,6 +295,26 @@ const instaVideos=[
     dispatch(getData())
   },[])
 
+  const handleImageOne=()=>{
+    navigate(`/detail/${1}`)
+  }
+
+  const handleImageTwo=()=>{
+    navigate(`/detail/${2}`)
+  }
+
+  const handleImageThree=()=>{
+    navigate(`/detail/${3}`)
+  }
+  const handleImageFour=()=>{
+    navigate(`/detail/${4}`)
+  }
+  const handleImageFive=()=>{
+    navigate(`/detail/${5}`)
+  }
+  
+
+
 
 
 
@@ -318,24 +338,24 @@ const instaVideos=[
 <ItemBox>
 
   <DataMap>
-    <ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
  <TextData></TextData>
   </DataMap>
 
   <DataMap sx={{background:"yellow"}}>
-    <ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
+    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
   </DataMap>
 
   <DataMap sx={{background:"blue"}}>
-    <ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
+    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
   </DataMap>
 
   <DataMap sx={{background:"green"}}>
-    <ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
+    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
   </DataMap>
 
   <DataMap sx={{background:"pink"}}>
-    <ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
+    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
   </DataMap>
 
 </ItemBox>

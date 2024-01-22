@@ -122,7 +122,6 @@ function Students() {
   const handleItem=(id)=>{
     navigate(`/detail/${id}`)
     sessionStorage.setItem("show", "one")
-
   }
 
   console.log("maiData", mainData);
