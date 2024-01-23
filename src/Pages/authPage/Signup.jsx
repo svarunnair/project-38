@@ -1,6 +1,7 @@
 
 import { Box, Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 
 
 
@@ -80,6 +81,8 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
 function Signup() {
+
+  const dispatch=useDispatch()
   return (
     <OuterContainer>
         <InnerDiv>
