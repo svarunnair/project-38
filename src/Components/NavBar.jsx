@@ -178,6 +178,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 function NavBar() {
     const navigate=useNavigate()
 
+    const handleAcc=()=>{
+      navigate('/signin')
+    }
 
 
 
@@ -219,7 +222,7 @@ console.log("show",show)
             <SecondBox>Student Travel</SecondBox>
            </BoxFour>
 
-           <BoxFive><PermIdentityOutlinedIcon sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
+           <BoxFive><PermIdentityOutlinedIcon onClick={handleAcc} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            <ShoppingCartOutlinedIcon sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            </BoxFive>
 

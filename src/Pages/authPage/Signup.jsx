@@ -1,5 +1,5 @@
 
-import { Box, Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material';
+import { Box, Button, FormControl, Input, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 
@@ -130,11 +130,10 @@ function Signup() {
       </FormControl>
 
                     </InnerBox>
-                    <InnerBox>
+                    <InnerBox >
                     <InputText>D.O.B</InputText>
                    
-        
-             
+                  <Input type='date'/>      
 
                     </InnerBox>
 
