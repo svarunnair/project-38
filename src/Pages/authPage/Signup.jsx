@@ -1,7 +1,8 @@
 
 import { Box, Button, FormControl, Input, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { postSignup } from '../../Redux/auth/authAction';
 
 
 
@@ -81,8 +82,63 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
 function Signup() {
-
   const dispatch=useDispatch()
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [phone,setPhone]=useState('')
+  const [first,setFirst]=useState('')
+  const [last,setLast]=useState('')
+  const [date,setDate]=useState('')
+  const [gender,setGender]=useState('')
+
+
+  const handleEmail=(e)=>{
+    let value=e.target.value 
+    setEmail(value)
+  }
+  const handlePassword=(e)=>{
+    let value=e.target.value 
+    setPassword(value)
+  }
+  const handleFirst=(e)=>{
+    let value=e.target.value 
+    setFirst(value)
+  }
+  const handleLast=(e)=>{
+    let value=e.target.value 
+    setLast(value)
+  }
+  const handleDate=(e)=>{
+    let value=e.target.value 
+    setDate(value)
+  }
+  const handleGender=(e)=>{
+    let value=e.target.value 
+    setGender(value)
+  }
+  const handlePhone=(e)=>{
+    let value=e.target.value 
+    setPhone(value)
+  }
+
+  const handleCreate=()=>{
+    let data={
+      email:email,
+      password:password,
+      FirstName:first,
+      LastName:last,
+      mobile:phone,
+      DOB:date,
+      gender:gender,
+    }
+    dispatch(postSignup(data))
+  }
+
+  console.log("gendrrrrrrrrrrrr",gender)
+
+
+
+  
   return (
     <OuterContainer>
         <InnerDiv>
@@ -96,11 +152,11 @@ function Signup() {
                 <DivBox>
 
                 <InputText>FIRST NAME</InputText>
-                <OutlinedInput sx={{height:40,width:"100%"}}/>
+                <OutlinedInput onChange={handleFirst} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox>
                 <InputText>LAST NAME</InputText>
-                <OutlinedInput sx={{height:40,width:"100%"}}/>
+                <OutlinedInput onChange={handleLast} sx={{height:40,width:"100%"}}/>
                 </DivBox>
 
                 <DivBox sx={{display:"flex",}}>
@@ -108,9 +164,9 @@ function Signup() {
                     <InputText>GENDER</InputText>
 
 
-                    <FormControl variant="standard" sx={{ m: 1,width:70 ,textAlign:"left",border:"1px solid black" }}>
+                    <FormControl  variant="standard" sx={{ m: 1,width:70 ,textAlign:"left",border:"1px solid black" }}>
  
-        <Select
+        <Select 
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
         //   value={salutation}
@@ -124,7 +180,7 @@ function Signup() {
           </MenuItem>
           <MenuItem value={"Mr."}>Male</MenuItem>
           <MenuItem value={"Mrs."}>Female</MenuItem>
-          <MenuItem value={"Mrs."}>Other</MenuItem>
+          <MenuItem value={"Mrss."}>Other</MenuItem>
          
         </Select>
       </FormControl>
@@ -133,25 +189,25 @@ function Signup() {
                     <InnerBox >
                     <InputText>D.O.B</InputText>
                    
-                  <Input type='date'/>      
+                  <Input onChange={handleDate} type='date'/>      
 
                     </InnerBox>
 
                 </DivBox>
                 <DivBox>
                 <InputText>PHONE</InputText>
-                <OutlinedInput sx={{height:40,width:"100%"}}/>
+                <OutlinedInput onChange={handlePhone} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox>
                 <InputText>EMAIL</InputText>
-                <OutlinedInput sx={{height:40,width:"100%"}}/>
+                <OutlinedInput onChange={handleEmail} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox>
                 <InputText>PASSWORD</InputText>
-                <OutlinedInput sx={{height:40,width:"100%"}}/>
+                <OutlinedInput onChange={handlePassword} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox sx={{paddingBottom:10,}}>
-                    <Button sx={{color:"white",borderRadius:0,background:"black",width:"100%",":hover":{color:"white",background:"black"}}}>Create</Button>
+                    <Button onClick={handleCreate} sx={{color:"white",borderRadius:0,background:"black",width:"100%",":hover":{color:"white",background:"black"}}}>Create</Button>
                 </DivBox>
 
             </DetailBox>
