@@ -326,15 +326,6 @@
     }
   ],
   "signup": [
-    {
-      "email": "a",
-      "password": "a",
-      "FirstName": "aaa",
-      "LastName": "aa",
-      "mobile": "a",
-      "DOB": "2024-01-04",
-      "gender": "",
-      "id": 1
-    }
+    
   ]
 }

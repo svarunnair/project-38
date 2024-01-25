@@ -1,7 +1,9 @@
 import { InputOutlined } from '@mui/icons-material';
 import { Box, Button, OutlinedInput, Typography, styled } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { postSignin } from '../../Redux/auth/authAction';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -34,6 +36,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const InputDiv = styled(Box)(({ theme }) => ({
 
     // border:"2px solid yellow",
+    paddingBottom:100,
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -103,6 +106,30 @@ cursor:"pointer",
 function Signin() {
 
     const navigate=useNavigate('')
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState("")
+    const dispatch=useDispatch()
+
+
+    const handleEmail=(e)=>{
+       let value=e.target.value 
+       setEmail(value)
+    }
+    const handlePassword=(e)=>{
+      let value=e.target.value 
+      setPassword(value)
+   }
+
+   const handleClick=()=>{
+    let data={
+      email:email,
+      password:password
+    }
+    dispatch(postSignin(data))
+    alert("Signin Successfull")
+    navigate('/home')
+
+   }
 
     const handleCreate=()=>{
         navigate('/signup')
@@ -117,15 +144,15 @@ function Signin() {
             <TitleBox>Login</TitleBox>
 
             <InputDiv>
-            <InputText sx={{paddingBottom:1,fontSize:10,fontWeight:600,}}>EMAIL</InputText>
-            <OutlinedInput sx={{width:"100%",height:35,borderRadius:0}}/>
+            <InputText  sx={{paddingBottom:1,fontSize:10,fontWeight:600,}}>EMAIL</InputText>
+            <OutlinedInput onChange={handleEmail} sx={{width:"100%",height:35,borderRadius:0}}/>
            <DivBox>
             <InputText sx={{paddingTop:2,fontSize:10,fontWeight:600,}}>PASSWORD</InputText>
-            <InputText sx={{paddingTop:2,justifyContent:'right',fontSize:12}}>Forgot ?</InputText>
+            <InputText sx={{paddingTop:2,justifyContent:'right',fontSize:12}}>Forgot?</InputText>
             </DivBox>
-            <OutlinedInput sx={{width:"100%",height:35,borderRadius:0}}/>
+            <OutlinedInput onChange={handlePassword}  sx={{width:"100%",height:35,borderRadius:0}}/>
 
-            <ButtonBox sx={{color:'white',background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
+            <ButtonBox onClick={handleClick} sx={{color:'white',background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
             <TextBox onClick={handleCreate}>Create Account</TextBox>
             </InputDiv>
         </InnerDiv>
