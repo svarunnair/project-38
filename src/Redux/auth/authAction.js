@@ -34,6 +34,8 @@ export const postSignup=(data)=>(dispatch)=>{
     })
     .then((res)=>{
         dispatch(postSignupSuccess(res.data))
+        console.log("res.data",res.data)
+        localStorage.setItem("token",res.data.token)
     })
     .catch((err)=>{
         dispatch(postSignupFailure())

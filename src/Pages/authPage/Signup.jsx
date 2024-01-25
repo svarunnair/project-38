@@ -3,6 +3,7 @@ import { Box, Button, FormControl, Input, InputLabel, MenuItem, OutlinedInput, S
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { postSignup } from '../../Redux/auth/authAction';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -90,6 +91,7 @@ function Signup() {
   const [last,setLast]=useState('')
   const [date,setDate]=useState('')
   const [gender,setGender]=useState('')
+  const navigate=useNavigate()
 
 
   const handleEmail=(e)=>{
@@ -132,6 +134,8 @@ function Signup() {
       gender:gender,
     }
     dispatch(postSignup(data))
+    alert("Details uploaded successfully")
+    navigate('/home')
   }
 
   console.log("gendrrrrrrrrrrrr",gender)
@@ -170,12 +174,12 @@ function Signup() {
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
         //   value={salutation}
-        //   onChange={handleChange}
+      
           label="Salutation"
         >
 
 
-<MenuItem  value="">
+<MenuItem onChange={handleGender}  value="">
            
           </MenuItem>
           <MenuItem value={"Mr."}>Male</MenuItem>
