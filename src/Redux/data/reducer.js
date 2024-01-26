@@ -1,4 +1,4 @@
-import { GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS } from "./action"
+import { GET_CART_FAILURE, GET_CART_REQUIEST, GET_CART_SUCCESS, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, POST_CART_FAILURE, POST_CART_REQUIEST, POST_CART_SUCCESS } from "./action"
 
 
 
@@ -8,6 +8,8 @@ const initState={
     isLoading:false,
     getMainData:[],
     getDetailData:[],
+    postCartData:[],
+    getCartData:[],
 
 }
 
@@ -47,6 +49,47 @@ export const dataReducer=(state=initState,action)=>{
             getDetailData:action.payload
         })
         case GET_DETAIL_FAILURE:
+        return({
+            ...state,
+            isError:true,
+            isLoading:false
+        })
+
+
+        case POST_CART_REQUIEST:
+        return({
+            ...state,
+            isError:false,
+            isLoading:true
+        })
+        case POST_CART_SUCCESS:
+        return({
+            ...state,
+            isError:false,
+            isLoading:false,
+            postCartData:action.payload
+        })
+        case POST_CART_FAILURE:
+        return({
+            ...state,
+            isError:true,
+            isLoading:false
+        })
+
+        case GET_CART_REQUIEST:
+        return({
+            ...state,
+            isError:false,
+            isLoading:true
+        })
+        case GET_CART_SUCCESS:
+        return({
+            ...state,
+            isError:false,
+            isLoading:false,
+            getCartData:action.payload
+        })
+        case GET_CART_FAILURE:
         return({
             ...state,
             isError:true,

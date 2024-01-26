@@ -7,6 +7,7 @@ import Signup from '../Pages/authPage/Signup'
 import Students from '../Pages/Students'
 import Marvel from '../Pages/Marvel'
 import Detail from '../Pages/Detail'
+import Cart from '../Pages/Cart'
 
 function PublicRoutes() {
   return (
@@ -19,6 +20,7 @@ function PublicRoutes() {
         <Route path='/students' element={<Students/>}/>
         <Route path='/marvel' element={<Marvel/>}/>
         <Route path='/detail/:id' element={<Detail/>}/>
+        <Route path='/cart' element={<Cart/>}/>
 
 
         

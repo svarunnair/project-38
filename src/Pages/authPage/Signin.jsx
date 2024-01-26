@@ -128,7 +128,6 @@ function Signin() {
     dispatch(postSignin(data))
     alert("Signin Successfull")
     navigate('/home')
-
    }
 
     const handleCreate=()=>{

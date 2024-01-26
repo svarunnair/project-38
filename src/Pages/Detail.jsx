@@ -1,8 +1,8 @@
 import { Box, Button, Typography, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getData, getDetail } from '../Redux/data/action';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getData, getDetail, postCart } from '../Redux/data/action';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
@@ -256,6 +256,14 @@ function Detail() {
     const [data,setData]=useState('')
     const [arrow,setArrow]=useState(true)
     const mainData=useSelector((store)=>store.data.getMainData)
+    const navigate=useNavigate()
+
+
+    const handleCart=()=>{
+      detail.quant=1
+      dispatch(postCart(detail))
+      alert('Product added to cart')
+    }
 
     console.log("maiNadataa",mainData)
 
@@ -320,7 +328,7 @@ function Detail() {
   <Button>-</Button>
 </QuantityBox>
 <CartDiv>
-  <Button sx={{background:"white",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{arrow&&<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
+  <Button onClick={handleCart} sx={{background:"white",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{arrow&&<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
   <Button sx={{background:"black",color:"white",width:300,height:50,":hover":{background:"black",color:"white"}}}>BUY NOW</Button>
 </CartDiv>
 
