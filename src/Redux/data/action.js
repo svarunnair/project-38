@@ -17,6 +17,10 @@ export const GET_CART_REQUIEST="GET_CART_REQUIEST"
 export const GET_CART_SUCCESS="GET_CART_SUCCESS"
 export const GET_CART_FAILURE="GET_CART_FAILURE"
 
+export const PATCH_CART_REQUIEST="PATCH_CART_REQUIEST"
+export const PATCH_CART_SUCCESS="PATCH_CART_SUCCESS"
+export const PATCH_CART_FAILURE="PATCH_CART_FAILURE"
+
 
 const getDataRequiest=()=>{
     return({
@@ -87,6 +91,23 @@ const getCartFailure=()=>{
     })
 }
 
+const patchCartRequiest=()=>{
+    return({
+        type:PATCH_CART_REQUIEST
+    })
+}
+const patchCartSuccess=(data)=>{
+    return({
+        type:PATCH_CART_SUCCESS,
+        payload:data
+    })
+}
+const patchCartFailure=()=>{
+    return({
+        type:PATCH_CART_FAILURE
+    })
+}
+
 
 
 export const getData=()=>(dispatch)=>{
@@ -145,5 +166,20 @@ export const getCart=()=>(dispatch)=>{
     })
     .catch((err)=>{
         dispatch(getCartFailure(err))
+    })
+}
+
+export const patchCart=(id,data)=>(dispatch)=>{
+    dispatch(patchCartRequiest())
+    return axios({
+        url:` http://localhost:8000/cart/${id}`,
+        method:"PATCH",
+        data
+    })
+    .then((res)=>{
+        dispatch(patchCartSuccess(res.data))
+    })
+    .catch((err)=>{
+        dispatch(patchCartFailure(err))
     })
 }

@@ -1,8 +1,9 @@
 import { Box, Button, Input, Typography, styled } from '@mui/material';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCart } from '../Redux/data/action';
+import { getCart, patchCart } from '../Redux/data/action';
+import { InputOutlined } from '@mui/icons-material';
 
 
 const OuterDiv = styled(Box)(({ theme }) => ({
@@ -158,12 +159,33 @@ function Cart() {
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const cartData=useSelector((store)=>store.data.getCartData)
+ 
 
     console.log("catData",cartData)
 
     let total=cartData?.reduce((acc,item,index)=>{
         return acc+item.price*item.quant
     },0)
+
+    const handleAdd=(id,quant)=>{
+        let data={
+            quant:quant+1 
+        }      
+        dispatch(patchCart(id,data))
+    }
+    const handleReduce=(id,quant)=>{
+        if(quant<2){
+            quant=1
+        }
+     else{
+       let data={
+            quant:quant-1
+        }
+        dispatch(patchCart(id,data))
+     }       
+    }
+   
+    
 
     useEffect(()=>{
        dispatch(getCart())
@@ -197,9 +219,10 @@ function Cart() {
                   
                     <MapText>{item.name}</MapText>
                     <Wrap>
-                    <Button>+</Button>
-                    <Input sx={{width:30}} placeholder={item.quant}/>
-                    <Button>-</Button>
+                    <Button onClick={()=>handleAdd(item.id,item.quant)}>+</Button>
+                    <TextBox>{item.quant}</TextBox> 
+                   
+                    <Button onClick={()=>handleReduce(item.id,item.quant)}>-</Button>
                     </Wrap>
                     <MapText>{item.price}</MapText>
                </MapData>

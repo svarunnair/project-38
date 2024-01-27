@@ -328,6 +328,7 @@
   "signup": [],
   "cart": [
     {
+      "2": "",
       "id": 3,
       "name": "Archies Daypack 02 (E) Black",
       "price": " 1880",
@@ -353,7 +354,7 @@
         "https://skybags.co.in/cdn/shop/files/2_05dbbbe6-2295-437d-91df-7ba1f274edc8_1800x1800.png?v=1700482273",
         "https://skybags.co.in/cdn/shop/files/8_3d2ebcd0-946a-46ef-813b-f00f4d811db9_1800x1800.png?v=1700482273"
       ],
-      "quant": 1
+      "quant": 2
     }
   ]
 }
