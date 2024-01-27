@@ -1,4 +1,4 @@
-import { Box, Button, Typography, styled } from '@mui/material';
+import { Box, Button, Input, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -98,6 +98,17 @@ const OuterDiv = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
+  const Wrap = styled(Box)(({ theme }) => ({
+
+    display:"flex",
+
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {
+    },
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
 
   const TotalDiv = styled(Box)(({ theme }) => ({
 
@@ -185,7 +196,11 @@ function Cart() {
                     <MapData>
                   
                     <MapText>{item.name}</MapText>
-                    <MapText>{item.quant}</MapText>
+                    <Wrap>
+                    <Button>+</Button>
+                    <Input sx={{width:30}} placeholder={item.quant}/>
+                    <Button>-</Button>
+                    </Wrap>
                     <MapText>{item.price}</MapText>
                </MapData>
                 ))}
