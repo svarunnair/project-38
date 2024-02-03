@@ -182,7 +182,9 @@ function NavBar() {
       navigate('/signin')
     }
 
-
+const handleCart=()=>{
+  navigate('/cart')
+}
 
 
     const handleIcon=()=>{
@@ -223,7 +225,7 @@ console.log("show",show)
            </BoxFour>
 
            <BoxFive><PermIdentityOutlinedIcon onClick={handleAcc} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
-           <ShoppingCartOutlinedIcon sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
+           <ShoppingCartOutlinedIcon onClick={handleCart} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            </BoxFive>
 
         </InnerDiv>

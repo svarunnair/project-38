@@ -19,7 +19,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 const InnerContainer = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   display:"grid",
   justifyItems:"center",
 
@@ -40,7 +40,7 @@ const TextBox = styled(Typography)(({ theme }) => ({
 }));
 
 const CartData = styled(Box)(({ theme }) => ({
-  border:"2px solid red",
+  // border:"2px solid red",
   width:"60%",
 
   [theme.breakpoints.down("xl")]: {},
@@ -87,7 +87,7 @@ const TitleBox = styled(Box)(({ theme }) => ({
 
   display:"flex",
   justifyContent:"right",
-  border:"2px solid red",
+  // border:"2px solid red",
   gap:150,
 
   [theme.breakpoints.down("xl")]: {},
@@ -99,9 +99,9 @@ const TitleBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const GapDiv = styled(Box)(({ theme }) => ({
-  border:"2px solid red",
+  // border:"2px solid red",
   display:"flex",
-  width:"80%",
+  width:"30%",
   justifyContent:"space-between",
   
 
@@ -113,9 +113,11 @@ const GapDiv = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const MapCart = styled(Box)(({ theme }) => ({
-  border:"2px solid yellow",
+  // border:"2px solid yellow",
   display:"flex",
   justifyContent:"space-between",
+  paddingTop:30,
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -144,15 +146,15 @@ function Cart() {
 
       <InnerContainer>
 
-        <TextBox sx={{paddingTop:5,}}>Cart</TextBox>
-        <TextBox sx={{paddingBottom:3}}>Continue shopping</TextBox>
+        <TextBox sx={{paddingTop:5,fontWeight:900,fontSize:25}}>Cart</TextBox>
+        <TextBox sx={{paddingBottom:3,":hover":{textDecoration:"underline"}}}>Continue shopping</TextBox>
 
 
         <CartData>
 
 <TitleBox>
-<TextBox>Quantity</TextBox>
-<TextBox>Price</TextBox>
+<TextBox sx={{fontSize:10,fontWeight:600,}}>QUANTITY</TextBox>
+<TextBox sx={{fontSize:10,fontWeight:600,}}>PRICE</TextBox>
 </TitleBox>
          
 
@@ -162,9 +164,9 @@ function Cart() {
     <ImageBox as={"img"} src={item.images[0]}/>
 <TextName>{item.name}</TextName>
   
-
+<TextBoxSecond>{item.name}</TextBoxSecond>
     <GapDiv>
-    <TextBoxSecond>{item.name}</TextBoxSecond>
+    
     <TextBox>{item.quant}</TextBox>
     <TextBox>₹{item.price}.00</TextBox>
     </GapDiv>
