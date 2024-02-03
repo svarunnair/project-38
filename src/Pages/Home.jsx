@@ -85,7 +85,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     borderRadius:15,
     background:"grey",
     height:400,
+    // boxShadow:'rgba(0, 0, 0, 5)',
   
+    position:"relative",
+
+    
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -338,7 +342,7 @@ const instaVideos=[
 <ItemBox>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer"}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
  <TextData></TextData>
   </DataMap>
 
