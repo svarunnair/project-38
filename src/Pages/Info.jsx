@@ -1,3 +1,4 @@
+import { CheckBox } from '@mui/icons-material';
 import { Box, OutlinedInput, Typography, styled } from '@mui/material';
 import React from 'react'
 
@@ -37,6 +38,8 @@ const CartDiv = styled(Box)(({ theme }) => ({
 const InputDiv = styled(Box)(({ theme }) => ({
 
   border:"2px solid yellow",
+  display:"flex",
+  flexDirection:"column",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -46,6 +49,16 @@ const InputDiv = styled(Box)(({ theme }) => ({
 }));
 const TextBox = styled(Typography)(({ theme }) => ({
 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const FirstBox = styled(Box)(({ theme }) => ({
+
+  display:"flex",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -75,7 +88,18 @@ function Info() {
 
          <InputDiv>
          <TextBox>Contact</TextBox>
-         <OutlinedInput placeholder='Email'/>
+         <OutlinedInput placeholder='Email'/><br/>
+         <TextBox>Contact</TextBox>
+
+         <OutlinedInput/>
+         <FirstBox>
+         <OutlinedInput/>
+         <OutlinedInput/>
+
+         </FirstBox>
+         
+         <OutlinedInput/>
+
          
          </InputDiv>
 
