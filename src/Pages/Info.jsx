@@ -1,9 +1,12 @@
 import { CheckBox } from '@mui/icons-material';
 import { Box, OutlinedInput, Typography, styled } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getCart } from '../Redux/data/action';
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
+  display:"flex",
 
 
   [theme.breakpoints.down("xl")]: {},
@@ -27,6 +30,7 @@ const InnerContainer = styled(Box)(({ theme }) => ({
 const CartDiv = styled(Box)(({ theme }) => ({
 
   border:"2px solid green",
+  width:"40%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -40,6 +44,7 @@ const InputDiv = styled(Box)(({ theme }) => ({
   border:"2px solid yellow",
   display:"flex",
   flexDirection:"column",
+  gap:20,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -56,9 +61,30 @@ const TextBox = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const MapData = styled(Box)(({ theme }) => ({
+
+  border:'2px solid red',
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const ImageBox = styled(Box)(({ theme }) => ({
+width:"15%",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 const FirstBox = styled(Box)(({ theme }) => ({
 
   display:"flex",
+  gap:10,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -79,6 +105,15 @@ const IconDiv = styled(Box)(({ theme }) => ({
 }));
 
 function Info() {
+  const dispatch=useDispatch()
+  const cartData=useSelector((store)=>store.data.getCartData)
+  
+
+  console.log("cartDataIm]nfooo",cartData)
+
+  useEffect(()=>{
+     dispatch(getCart())
+  },[])
   return (
     <OuterContainer>
 
@@ -88,18 +123,26 @@ function Info() {
 
          <InputDiv>
          <TextBox>Contact</TextBox>
-         <OutlinedInput placeholder='Email'/><br/>
-         <TextBox>Contact</TextBox>
-
-         <OutlinedInput/>
+         <OutlinedInput placeholder='Email'/>
+         <TextBox>Email me with news and offers</TextBox>
+         <TextBox>Shipping address</TextBox>
+         <OutlinedInput placeholder='Country/Region'/>
          <FirstBox>
-         <OutlinedInput/>
-         <OutlinedInput/>
+         <OutlinedInput placeholder='First name' />
+         <OutlinedInput placeholder='Last name' />
 
          </FirstBox>
          
-         <OutlinedInput/>
+         <OutlinedInput placeholder='Address'/>
+         <OutlinedInput placeholder='Appartment,suit,etc'/>
+         <FirstBox>
+         <OutlinedInput placeholder='City'/>
+         <OutlinedInput placeholder='State'/>
+         <OutlinedInput placeholder='PIN code'/>
+         </FirstBox>
 
+         <OutlinedInput placeholder="Phone"/>
+         <TextBox>Save this information for next time</TextBox>
          
          </InputDiv>
 
@@ -108,6 +151,14 @@ function Info() {
       </InnerContainer>
 
       <CartDiv>
+
+        {cartData.map((item)=>(
+          <MapData>
+
+            <ImageBox as={"img"} src={item.images[0]}/>
+          
+          </MapData>
+        ))}
 
       </CartDiv>
 
