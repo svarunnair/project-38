@@ -31,6 +31,7 @@ const CartDiv = styled(Box)(({ theme }) => ({
 
   border:"2px solid green",
   width:"40%",
+  background:"#F5F5F5",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
