@@ -1,5 +1,5 @@
 import { CheckBox } from '@mui/icons-material';
-import { Box, OutlinedInput, Typography, styled } from '@mui/material';
+import { Box, Button, OutlinedInput, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getCart } from '../Redux/data/action';
@@ -114,6 +114,28 @@ border:"2px solid blue",
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const CoupenDiv = styled(Box)(({ theme }) => ({
+  border:"2px solid blue",
+  display:"flex",
+  
+  
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  const TotalDiv = styled(Box)(({ theme }) => ({
+    border:"2px solid green",
+    display:"flex",
+    
+    
+      [theme.breakpoints.down("xl")]: {},
+      [theme.breakpoints.down("lg")]: {},
+      [theme.breakpoints.down("md")]: {},
+      [theme.breakpoints.down("sm")]: {},
+      [theme.breakpoints.down("xs")]: {},
+    }));
 const IconDiv = styled(Box)(({ theme }) => ({
 
   width:"15%",
@@ -132,6 +154,9 @@ function Info() {
   
 
   console.log("cartDataIm]nfooo",cartData)
+
+  let total=cartData.reduce((acc,item,index)=>{
+    return acc + item.price * item.quant  },0)
 
   useEffect(()=>{
      dispatch(getCart())
@@ -184,6 +209,16 @@ function Info() {
           
           </MapData>
         ))}
+
+        <CoupenDiv>
+          <OutlinedInput sx={{width:"80%"}} placeholder='Discount code'/>
+          <Button>Apply</Button>
+        </CoupenDiv>
+
+       <TotalDiv>
+        <TextBox>Sub Total :</TextBox>
+        <TextBox>{total}</TextBox>
+       </TotalDiv>
 
       </CartDiv>
 
