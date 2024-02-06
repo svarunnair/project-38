@@ -32,6 +32,12 @@ const CartDiv = styled(Box)(({ theme }) => ({
   border:"2px solid green",
   width:"40%",
   background:"#F5F5F5",
+  display:"flex",
+  flexDirection:"column",
+  gap:40,
+  padding:20,
+  
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -64,7 +70,9 @@ const TextBox = styled(Typography)(({ theme }) => ({
 }));
 const MapData = styled(Box)(({ theme }) => ({
 
-  border:'2px solid red',
+  // border:'2px solid red',
+  display:"flex",
+  justifyContent:"space-between",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -74,6 +82,9 @@ const MapData = styled(Box)(({ theme }) => ({
 }));
 const ImageBox = styled(Box)(({ theme }) => ({
 width:"15%",
+// border:'2px solid red',
+background:"#E8E8E8",
+borderRadius:10,
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -86,6 +97,16 @@ const FirstBox = styled(Box)(({ theme }) => ({
 
   display:"flex",
   gap:10,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const ImageDiv = styled(Box)(({ theme }) => ({
+border:"2px solid blue",
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -155,8 +176,11 @@ function Info() {
 
         {cartData.map((item)=>(
           <MapData>
-
+           
             <ImageBox as={"img"} src={item.images[0]}/>
+          
+            <TextBox>{item.name}</TextBox>
+            <TextBox>₹{item.price}.00</TextBox>
           
           </MapData>
         ))}
