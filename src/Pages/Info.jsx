@@ -128,6 +128,7 @@ const CoupenDiv = styled(Box)(({ theme }) => ({
   const TotalDiv = styled(Box)(({ theme }) => ({
     border:"2px solid green",
     display:"flex",
+    justifyContent:"space-between",
     
     
       [theme.breakpoints.down("xl")]: {},
@@ -190,6 +191,7 @@ function Info() {
 
          <OutlinedInput placeholder="Phone"/>
          <TextBox>Save this information for next time</TextBox>
+         <Button>Continue to Shoping</Button>
          
          </InputDiv>
 
@@ -217,7 +219,7 @@ function Info() {
 
        <TotalDiv>
         <TextBox>Sub Total :</TextBox>
-        <TextBox>{total}</TextBox>
+        <TextBox>₹{total}.00</TextBox>
        </TotalDiv>
 
       </CartDiv>
