@@ -17,7 +17,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 }));
 const InnerContainer = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red",
+  // border:"2px solid red",
   width:"60%",
 
   [theme.breakpoints.down("xl")]: {},
@@ -29,7 +29,7 @@ const InnerContainer = styled(Box)(({ theme }) => ({
 
 const CartDiv = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   width:"40%",
   background:"#F5F5F5",
   display:"flex",
@@ -48,10 +48,12 @@ const CartDiv = styled(Box)(({ theme }) => ({
 
 const InputDiv = styled(Box)(({ theme }) => ({
 
-  border:"2px solid yellow",
+  // border:"2px solid yellow",
   display:"flex",
   flexDirection:"column",
   gap:20,
+  padding:20,
+  alignContent:"left",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -60,6 +62,7 @@ const InputDiv = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const TextBox = styled(Typography)(({ theme }) => ({
+  textAlign:'left',
 
 
   [theme.breakpoints.down("xl")]: {},
@@ -81,7 +84,7 @@ const MapData = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const ImageBox = styled(Box)(({ theme }) => ({
-width:"15%",
+width:"55%",
 // border:'2px solid red',
 background:"#E8E8E8",
 borderRadius:10,
@@ -105,7 +108,10 @@ const FirstBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const ImageDiv = styled(Box)(({ theme }) => ({
-border:"2px solid blue",
+// border:"2px solid blue",
+display:"flex",
+width:"30%",
+
 
 
   [theme.breakpoints.down("xl")]: {},
@@ -115,7 +121,7 @@ border:"2px solid blue",
   [theme.breakpoints.down("xs")]: {},
 }));
 const CoupenDiv = styled(Box)(({ theme }) => ({
-  border:"2px solid blue",
+  // border:"2px solid blue",
   display:"flex",
   
   
@@ -126,7 +132,7 @@ const CoupenDiv = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xs")]: {},
   }));
   const TotalDiv = styled(Box)(({ theme }) => ({
-    border:"2px solid green",
+    // border:"2px solid green",
     display:"flex",
     justifyContent:"space-between",
     
@@ -137,6 +143,18 @@ const CoupenDiv = styled(Box)(({ theme }) => ({
       [theme.breakpoints.down("sm")]: {},
       [theme.breakpoints.down("xs")]: {},
     }));
+    const BottomBox = styled(Box)(({ theme }) => ({
+      // border:"2px solid green",
+      display:"flex",
+      justifyContent:"space-between",
+      
+      
+        [theme.breakpoints.down("xl")]: {},
+        [theme.breakpoints.down("lg")]: {},
+        [theme.breakpoints.down("md")]: {},
+        [theme.breakpoints.down("sm")]: {},
+        [theme.breakpoints.down("xs")]: {},
+      }));
 const IconDiv = styled(Box)(({ theme }) => ({
 
   width:"15%",
@@ -191,7 +209,10 @@ function Info() {
 
          <OutlinedInput placeholder="Phone"/>
          <TextBox>Save this information for next time</TextBox>
-         <Button>Continue to Shoping</Button>
+         <BottomBox>
+          <TextBox>{"<"}Return to cart</TextBox>
+         <Button sx={{width:"30%",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
+         </BottomBox>
          
          </InputDiv>
 
@@ -203,10 +224,13 @@ function Info() {
 
         {cartData.map((item)=>(
           <MapData>
-           
+           <ImageDiv>
+            
             <ImageBox as={"img"} src={item.images[0]}/>
+            {item.quant}
+            </ImageDiv>
           
-            <TextBox>{item.name}</TextBox>
+            <TextBox sx={{width:"40%",}}>{item.name}</TextBox>
             <TextBox>₹{item.price}.00</TextBox>
           
           </MapData>
