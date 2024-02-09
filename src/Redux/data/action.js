@@ -21,6 +21,10 @@ export const PATCH_CART_REQUIEST="PATCH_CART_REQUIEST"
 export const PATCH_CART_SUCCESS="PATCH_CART_SUCCESS"
 export const PATCH_CART_FAILURE="PATCH_CART_FAILURE"
 
+export const POST_INFO_REQUIEST="POST_INFO_REQUIEST"
+export const POST_INFO_SUCCESS="POST_INFO_SUCCESS"
+export const POST_INFO_FAILURE="POST_INFO_FAILURE"
+
 
 const getDataRequiest=()=>{
     return({
@@ -107,6 +111,24 @@ const patchCartFailure=()=>{
         type:PATCH_CART_FAILURE
     })
 }
+const postInfoRequiest=()=>{
+    return({
+        type:POST_INFO_REQUIEST
+    })
+}
+const postInfoSuccess=(data)=>{
+    return({
+        type:POST_INFO_SUCCESS,
+        payload:data
+    })
+}
+const postInfoFailure=()=>{
+    return({
+        type:POST_INFO_FAILURE
+    })
+}
+
+
 
 
 
@@ -181,5 +203,22 @@ export const patchCart=(id,data)=>(dispatch)=>{
     })
     .catch((err)=>{
         dispatch(patchCartFailure(err))
+    })
+}
+
+export const postInfo=(data)=>(dispatch)=>{
+    console.log("datatataa",data)
+    dispatch(postInfoRequiest())
+    return axios({
+        url:"http://localhost:8000/info",
+        method:"POST",
+        data
+    })
+    .then((res)=>{
+        dispatch(postInfoSuccess(res.data))
+        console.log("res.infooo",res.data)
+    })
+    .catch((err)=>{
+        dispatch(postInfoFailure(err))
     })
 }

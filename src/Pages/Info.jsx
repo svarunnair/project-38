@@ -2,7 +2,7 @@ import { CheckBox } from '@mui/icons-material';
 import { Box, Button, OutlinedInput, Typography, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCart } from '../Redux/data/action';
+import { getCart, postInfo } from '../Redux/data/action';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -223,6 +223,13 @@ function Info() {
   const navigate=useNavigate()
   const cartData=useSelector((store)=>store.data.getCartData)
   const [show,setShow]=useState(false)
+  const [email,setEmail]=useState('')
+  const [country,setCountry]=useState('')
+  const [firts,setFirts]=useState('')
+  const [last,setLast]=useState('')
+  const [address,setAddress]=useState('')
+  const [appartment,setAppartment]=useState('')
+
 
   const handleReturn=()=>{
     navigate('/cart')
@@ -234,6 +241,43 @@ function Info() {
   const handleHideShow=()=>{
     setShow(false)
   }
+  const handleEmail=(e)=>{
+    let value=e.target.value 
+    setEmail(value)
+  }
+  const handleCountry=(e)=>{
+    let value=e.target.value 
+    setCountry(value)
+  }
+  const handleFirts=(e)=>{
+    let value=e.target.value 
+    setFirts(value)
+  }
+  const handleLast=(e)=>{
+    let value=e.target.value 
+    setLast(value)
+  }
+  const handleAppartment=(e)=>{
+    let value=e.target.value 
+    setAppartment(value)
+  }
+  const handleAddress=(e)=>{
+    let value=e.target.value 
+    setAddress(value)
+  }
+
+  const handleClick=()=>{
+    let data={
+      email:email,
+      firstName:firts,
+      lastName:last,
+      address:address,
+      appartment:appartment
+
+    }
+    dispatch(postInfo(data))
+  }
+
 
 
   console.log("cartDataIm]nfooo",cartData)
@@ -294,18 +338,18 @@ function Info() {
 
          <InputDiv>
          <TextBox>Contact</TextBox>
-         <OutlinedInput placeholder='Email'/>
+         <OutlinedInput onChange={handleEmail} placeholder='Email'/>
          <TextBox>Email me with news and offers</TextBox>
          <TextBox>Shipping address</TextBox>
-         <OutlinedInput placeholder='Country/Region'/>
+         <OutlinedInput onChange={handleCountry} placeholder='Country/Region'/>
          <FirstBox>
-         <OutlinedInput placeholder='First name' />
-         <OutlinedInput placeholder='Last name' />
+         <OutlinedInput onChange={handleFirts} placeholder='First name' />
+         <OutlinedInput onChange={handleLast} placeholder='Last name' />
 
          </FirstBox>
          
-         <OutlinedInput placeholder='Address'/>
-         <OutlinedInput placeholder='Appartment,suit,etc'/>
+         <OutlinedInput onChange={handleAppartment} placeholder='Address'/>
+         <OutlinedInput onChange={handleAddress} placeholder='Appartment,suit,etc'/>
          <FirstBox>
          <OutlinedInput placeholder='City'/>
          <OutlinedInput placeholder='State'/>
@@ -316,7 +360,7 @@ function Info() {
          <TextBox>Save this information for next time</TextBox>
          <BottomBox>
           <TextBox sx={{cursor:"pointer"}} onClick={handleReturn}>{"<"}Return to cart</TextBox>
-         <Button sx={{width:"30%",cursor:"pointer",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
+         <Button onClick={handleClick} sx={{width:"30%",cursor:"pointer",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
          </BottomBox>
          
          </InputDiv>

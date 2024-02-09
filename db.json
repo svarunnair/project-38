@@ -384,5 +384,15 @@
       ],
       "quant": 1
     }
+  ],
+  "info": [
+    {
+      "email": "varunsnair1997@gmail.com",
+      "firstName": "Varun",
+      "lastName": "Nair",
+      "address": "32121",
+      "appartment": "Karippamon kizhakkathil THAZHATHUKULAKKADA .p.o kollam",
+      "id": 1
+    }
   ]
 }
