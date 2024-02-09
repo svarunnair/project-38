@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, styled } from '@mui/material';
+import { Box, Button, Grid, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -127,18 +127,39 @@ const MapCart = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const BottomDiv = styled(Box)(({ theme }) => ({
+  // border:"2px solid red",
+   display:"flex",
+   flexDirection:"column",
+   justifyContent:"space-between",
+   gap:30,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 function Cart() {
 
+  const navigate=useNavigate()
   const dispatch=useDispatch()
   const cartData=useSelector((store)=>store.data.getCartData)
   
+
+  const handleCheck=()=>{
+    navigate('/info')
+  }
 
   console.log("catData",cartData)
 
   useEffect(()=>{
      dispatch(getCart())
   },[])
+
+  const total= cartData.reduce((acc,item,index)=>{
+    return acc+item.price*item.quant
+  },0)
 
 
   return (
@@ -175,8 +196,12 @@ function Cart() {
   </MapCart>
 ))}
 
-
         </CartData>
+
+        <BottomDiv>
+          <TextBox>Sub Total : ₹{total}</TextBox>
+          <Button onClick={handleCheck} sx={{borderRadius:0,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Check out</Button>
+        </BottomDiv>
 
       </InnerContainer>
 

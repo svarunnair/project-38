@@ -1,9 +1,10 @@
 import { CheckBox } from '@mui/icons-material';
 import { Box, Button, OutlinedInput, Typography, styled } from '@mui/material';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getCart } from '../Redux/data/action';
-
+import { useNavigate } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   display:"flex",
@@ -22,7 +23,9 @@ const InnerContainer = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"100%",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -41,11 +44,35 @@ const CartDiv = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    display:"none"
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
+const CartDivHide = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid green",
+  width:"90%",
+  background:"white",
+  display:"none",
+  flexDirection:"column",
+  gap:10,
+  padding:20,
+  
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    display:"flex",
+  flexDirection:"column",
+ 
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 const InputDiv = styled(Box)(({ theme }) => ({
 
   // border:"2px solid yellow",
@@ -166,11 +193,48 @@ const IconDiv = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const OrderDiv = styled(Box)(({ theme }) => ({
+background:"#F0F0F0",
+justifyContent:"space-between",
+padding:10,
+  display:"none",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    display:"flex",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const OrderDivHide = styled(Box)(({ theme }) => ({
+  background:"#F0F0F0",
+  padding:10,
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {
+     
+    },
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
 
 function Info() {
   const dispatch=useDispatch()
+  const navigate=useNavigate()
   const cartData=useSelector((store)=>store.data.getCartData)
-  
+  const [show,setShow]=useState(false)
+
+  const handleReturn=()=>{
+    navigate('/cart')
+  }
+
+  const handleShow=()=>{
+    setShow(true)
+  }
+  const handleHideShow=()=>{
+    setShow(false)
+  }
+
 
   console.log("cartDataIm]nfooo",cartData)
 
@@ -186,6 +250,47 @@ function Info() {
       <InnerContainer>
 
         <IconDiv as={"img"} src="https://cdn.shopify.com/s/files/1/0696/1011/1257/files/Skybags_Logo._120x_5d2632d5-f10c-4723-9362-94e066a323c8_x320.png?v=1677825186"/>
+
+
+{!show&&<OrderDiv onClick={handleShow}>
+ 
+ <TextBox><ShoppingCartIcon/> Show order summery</TextBox>
+ <TextBox>₹{total}.00</TextBox>
+</OrderDiv>}
+
+{show&&<OrderDivHide onClick={handleHideShow}>
+<TextBox><ShoppingCartIcon/>Hide order summery</TextBox>
+
+<CartDivHide>
+
+        {cartData.map((item)=>(
+          <MapData>
+           <ImageDiv>
+            
+            <ImageBox as={"img"} src={item.images[0]}/>
+            {item.quant}
+            </ImageDiv>
+          
+            <TextBox sx={{width:"40%",}}>{item.name}</TextBox>
+            <TextBox>₹{item.price}.00</TextBox>
+          
+          </MapData>
+        ))}
+
+        <CoupenDiv>
+          <OutlinedInput sx={{width:"80%"}} placeholder='Discount code'/>
+          <Button>Apply</Button>
+        </CoupenDiv>
+
+       <TotalDiv>
+        <TextBox>Sub Total :</TextBox>
+        <TextBox>₹{total}.00</TextBox>
+       </TotalDiv>
+
+      </CartDivHide>
+
+
+</OrderDivHide>}
 
          <InputDiv>
          <TextBox>Contact</TextBox>
@@ -210,8 +315,8 @@ function Info() {
          <OutlinedInput placeholder="Phone"/>
          <TextBox>Save this information for next time</TextBox>
          <BottomBox>
-          <TextBox>{"<"}Return to cart</TextBox>
-         <Button sx={{width:"30%",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
+          <TextBox sx={{cursor:"pointer"}} onClick={handleReturn}>{"<"}Return to cart</TextBox>
+         <Button sx={{width:"30%",cursor:"pointer",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
          </BottomBox>
          
          </InputDiv>
