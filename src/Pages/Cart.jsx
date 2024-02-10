@@ -88,7 +88,7 @@ const TitleBox = styled(Box)(({ theme }) => ({
   display:"flex",
   justifyContent:"right",
   // border:"2px solid red",
-  gap:150,
+  gap:110,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -150,6 +150,9 @@ function Cart() {
   const handleCheck=()=>{
     navigate('/info')
   }
+  const handleShop=()=>{
+    navigate(-1)
+  }
 
   console.log("catData",cartData)
 
@@ -168,7 +171,7 @@ function Cart() {
       <InnerContainer>
 
         <TextBox sx={{paddingTop:5,fontWeight:900,fontSize:25}}>Cart</TextBox>
-        <TextBox sx={{paddingBottom:3,":hover":{textDecoration:"underline"}}}>Continue shopping</TextBox>
+        <TextBox onClick={handleShop} sx={{cursor:"pointer",paddingBottom:3,":hover":{textDecoration:"underline"}}}>Continue shopping</TextBox>
 
 
         <CartData>
@@ -188,12 +191,16 @@ function Cart() {
 <TextBoxSecond>{item.name}</TextBoxSecond>
     <GapDiv>
     
-    <TextBox>{item.quant}</TextBox>
+    <TextBox sx={{border:"1px solid black",height:"30%"}}><Button>+</Button>
+      {item.quant}
+      <Button>-</Button>
+      </TextBox>
     <TextBox>₹{item.price}.00</TextBox>
     </GapDiv>
 
-  
+
   </MapCart>
+  
 ))}
 
         </CartData>

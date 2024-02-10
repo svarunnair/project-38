@@ -273,7 +273,6 @@ function Info() {
       lastName:last,
       address:address,
       appartment:appartment
-
     }
     dispatch(postInfo(data))
   }
