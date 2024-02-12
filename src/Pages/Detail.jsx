@@ -144,7 +144,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const ReviewBox = styled(Box)(({ theme }) => ({
 
-    border:"2px solid red",
+    // border:"2px solid red",
     background:"#2AAA8A",
     width:"100%",
     height:650,
@@ -264,6 +264,10 @@ function Detail() {
       dispatch(postCart(detail))
       alert('Product added to cart')
     }
+    const handleBuy=()=>{
+      dispatch(postCart(detail))
+      navigate('/info')
+    }
 
     console.log("maiNadataa",mainData)
 
@@ -329,7 +333,7 @@ function Detail() {
 </QuantityBox>
 <CartDiv>
   <Button onClick={handleCart} sx={{background:"white",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{arrow&&<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
-  <Button sx={{background:"black",color:"white",width:300,height:50,":hover":{background:"black",color:"white"}}}>BUY NOW</Button>
+  <Button onClick={handleBuy} sx={{background:"black",color:"white",width:300,height:50,":hover":{background:"black",color:"white"}}}>BUY NOW</Button>
 </CartDiv>
 
 
