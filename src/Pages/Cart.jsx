@@ -2,7 +2,7 @@ import { Box, Button, Grid, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCart } from '../Redux/data/action';
+import { getCart, patchCart } from '../Redux/data/action';
 
 
 
@@ -153,6 +153,26 @@ function Cart() {
   const handleShop=()=>{
     navigate(-1)
   }
+  const handleAdd=(id,quant)=>{
+    let data={
+      quant:quant+1
+    }
+    dispatch(patchCart(id,data))
+  }
+  const handleReduce=(id,quant)=>{
+
+    if(quant<2){
+      quant=1
+    }
+    else{
+      let data={
+        quant:quant-1
+      }       
+      dispatch(patchCart(id,data))
+    }
+   
+
+  }
 
   console.log("catData",cartData)
 
@@ -191,9 +211,10 @@ function Cart() {
 <TextBoxSecond>{item.name}</TextBoxSecond>
     <GapDiv>
     
-    <TextBox sx={{border:"1px solid black",height:"30%"}}><Button>+</Button>
+    <TextBox sx={{border:"1px solid black",height:"30%"}}>
+      <Button onClick={()=>handleAdd(item.id,item.quant)}>+</Button>
       {item.quant}
-      <Button>-</Button>
+      <Button onClick={()=>handleReduce(item.id,item.quant)}>-</Button>
       </TextBox>
     <TextBox>₹{item.price}.00</TextBox>
     </GapDiv>
