@@ -2,7 +2,7 @@ import { Box, Button, Typography, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getData, getDetail, postCart } from '../Redux/data/action';
+import { getData, getDetail, patchCart, postCart } from '../Redux/data/action';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
@@ -25,7 +25,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      flexDirection:"column",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -64,7 +66,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      width:"100%",
+      padding:10,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -221,9 +226,14 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     justifyContent:"center",
     gap:150,
     paddingBottom:30,
+    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      display:'grid',
+      gridTemplateColumns:"repeat(2,1fr)",
+      gap:100,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }))
@@ -268,6 +278,21 @@ function Detail() {
       dispatch(postCart(detail))
       navigate('/info')
     }
+    const handleAdd=(id,quant)=>{
+      quant=quant+1
+      dispatch(patchCart(id,quant))
+    }
+    const handleReduce=(id,quant)=>{
+      if(quant<2){
+        quant=1
+      }
+      else{
+        let data={
+          quant:quant-1
+        }
+        dispatch(patchCart(id,data))
+      }
+    }
 
     console.log("maiNadataa",mainData)
 
@@ -282,20 +307,17 @@ function Detail() {
   useEffect(()=>{
      if(Object.keys(detail).length>0){
       setData(detail.images[0])
+      detail.quant=1
      }
   },[detail])
 
-  
-//   useEffect(()=>{
-//     if(Object.keys(mainData).length>0){
-//      setMedia(mainData.images[0])
-//     }
-//  },[mainData])
 
 
   useEffect(()=>{
     dispatch(getDetail(params.id))
+    // detail.quant=1
   },[])
+
 
 
   console.log("getDetail",getDetail)
@@ -327,9 +349,9 @@ function Detail() {
 <DetailImage as={"img"} src={data}/>
 <TextDetail>Quantity</TextDetail>
 <QuantityBox>
-  <Button>+</Button>
-  <Button>1</Button>
-  <Button>-</Button>
+  <Button onClick={()=>handleAdd(detail.id,detail.quant)}>+</Button>
+  <Button>{detail.quant}</Button>
+  <Button onClick={()=>handleReduce(detail.id,detail.quant)}>-</Button>
 </QuantityBox>
 <CartDiv>
   <Button onClick={handleCart} sx={{background:"white",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{arrow&&<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
