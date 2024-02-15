@@ -15,9 +15,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
   const InnerDiv = styled(Box)(({ theme }) => ({
-    border:"2px solid black",
+    // border:"2px solid black",
     display:"flex",
     justifyContent:"right",
+    paddingTop:100,
+    paddingBottom:100,
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -27,10 +29,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
   const DataBox = styled(Box)(({ theme }) => ({
-    border:"2px solid green",
-    width:"70%",
+    // border:"2px solid green",
+    width:"77%",
     display:"grid",
     gridTemplateColumns:'repeat(3,1fr)',
+    gap:15,
 
   
     [theme.breakpoints.down("xl")]: {},
@@ -40,7 +43,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xs")]: {},
   }));
   const DataMap = styled(Box)(({ theme }) => ({
-    border:"2px solid green",
+    // border:"2px solid green",
+    background:"#DEDEDE",
+    padding:10,
+    borderRadius:20,
+
     
   
     [theme.breakpoints.down("xl")]: {},
@@ -51,8 +58,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
   const ImageBox = styled(Box)(({ theme }) => ({
-    border:"2px solid green",
+    // border:"2px solid blue",
     width:'100%',
+
     
   
     [theme.breakpoints.down("xl")]: {},
@@ -63,7 +71,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
   const TextBox = styled(Typography)(({ theme }) => ({
-    border:"2px solid green",
+    // border:"2px solid green",
     
   
     [theme.breakpoints.down("xl")]: {},
@@ -113,7 +121,7 @@ function Marvel() {
 
 <DataBox>
     {mainData?.map((item)=>(
-        <DataMap>
+        <DataMap >
 
             <ImageBox as={"img"} src={item.images[0]}/>
             <TextBox>{item.name}</TextBox>
