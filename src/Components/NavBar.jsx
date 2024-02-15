@@ -1,11 +1,13 @@
-import { Box, Typography, styled } from '@mui/material';
-import React from 'react'
+import { Box, Input, Typography, styled } from '@mui/material';
+import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
+
 const OuterContainer = styled(Box)(({ theme }) => ({
 
     // border:"2px solid black",
@@ -175,8 +177,50 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xs")]: {},
   }));
 
+  const SearchBox = styled(Box)(({ theme }) => ({
+    // border:"2px solid red",
+    display:"flex",
+    justifyContent:"space-between",
+    height:"100%",
+    alignItems:'center',
+    width:"80%",
+
+    
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  const InnerContainer = styled(Box)(({ theme }) => ({
+    // border:"2px solid red",
+    display:"flex",
+    
+    justifyContent:"center",
+    
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  const InputBox = styled(Box)(({ theme }) => ({
+    // border:"2px solid red",
+    display:"flex",
+    width:"40%",
+    padding:20,
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  
+
 function NavBar() {
     const navigate=useNavigate()
+    const [show,setShow]=useState(false)
 
     const handleAcc=()=>{
       navigate('/signin')
@@ -186,23 +230,48 @@ const handleCart=()=>{
   navigate('/cart')
 }
 
+const handleSearch=()=>{
+    setShow(true)
+}
 
     const handleIcon=()=>{
         navigate('/home')
     }
 
+    const handleClose=()=>{
+      setShow(false)
+    }
 
-    let show = sessionStorage.getItem("show")
+    // let show = sessionStorage.getItem("show")
 
 console.log("show",show)
 
   return (
    <>
 
-     { show==="one" ? <></>:  <OuterContainer>
+     { show===true ? <InnerContainer>
+     
+     <SearchBox>
+
+      
+      <InputBox>
+      <SearchIcon/>
+     <Input placeholder='Search our store'/>
+      </InputBox>
+    
+     <CloseIcon onClick={handleClose}/>
+
+     
+     
+     </SearchBox>
+
+     </InnerContainer>
+     
+     
+     :  <OuterContainer>
         <InnerDiv>
            <BoxOne>
-           <SearchIcon sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
+           <SearchIcon onClick={handleSearch} sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
            <LocationOnOutlinedIcon sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
            </BoxOne>
 

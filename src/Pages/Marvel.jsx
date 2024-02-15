@@ -5,6 +5,7 @@ import { getData } from '../Redux/data/action';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid black",
+
    
   
     [theme.breakpoints.down("xl")]: {},
@@ -80,13 +81,36 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
+  const ButtonMenu = styled(Box)(({ theme }) => ({
+    background:"#0373bc",
+    color:"white",
+    ":hover":{
+      background:"#0373bc",
+    color:"white",
+    },
+    textAlign:"left",
+    padding:15,
+    borderRadius:10,
+    
+  
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
   const MenuBox = styled(Box)(({ theme }) => ({
-    border:"2px solid green",
+    // border:"2px solid green",
     display:"flex",
     flexDirection:"column",
     width:"20%",
-    position:"absolute",
+    position:"fixed",
     
+    gap:15,
+  
+ 
+    paddingTop:40,
+   
     
   
     [theme.breakpoints.down("xl")]: {},
@@ -111,9 +135,12 @@ function Marvel() {
   return (
     <OuterContainer>
       <MenuBox>
-        <Button>dddddd</Button>
-        <Button>dddddd</Button>
-        <Button>dddddd</Button>
+        <ButtonMenu>TYPE</ButtonMenu>
+        <ButtonMenu>CATEGORY</ButtonMenu>
+        <ButtonMenu>COLOUR</ButtonMenu>
+        <ButtonMenu>AGE GROUP</ButtonMenu>
+        <ButtonMenu>COLLECTION</ButtonMenu>
+        <ButtonMenu>PRICE</ButtonMenu>
         </MenuBox>
 
 

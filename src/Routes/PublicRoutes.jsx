@@ -9,6 +9,7 @@ import Marvel from '../Pages/Marvel'
 import Detail from '../Pages/Detail'
 import Cart from '../Pages/Cart'
 import Info from '../Pages/Info'
+import Search from '../Pages/Search'
 
 
 
@@ -25,9 +26,8 @@ function PublicRoutes() {
         <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/info' element={<Info/>}/>
+        <Route path='/search' element={<Search/>}/>
   
-
-
         
     </Routes>
   )
