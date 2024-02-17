@@ -26,7 +26,7 @@ function PublicRoutes() {
         <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/info' element={<Info/>}/>
-        <Route path='/search' element={<Search/>}/>
+        <Route path='/search/:id' element={<Search/>}/>
   
         
     </Routes>

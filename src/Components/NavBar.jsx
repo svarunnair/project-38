@@ -221,6 +221,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 function NavBar() {
     const navigate=useNavigate()
     const [show,setShow]=useState(false)
+   
 
     const handleAcc=()=>{
       navigate('/signin')
@@ -232,6 +233,12 @@ const handleCart=()=>{
 
 const handleSearch=()=>{
     setShow(true)
+    
+}
+
+const handleInput=(e)=>{
+   let value=e.target.value 
+   navigate(`/search/${value}`)
 }
 
     const handleIcon=()=>{
@@ -240,6 +247,7 @@ const handleSearch=()=>{
 
     const handleClose=()=>{
       setShow(false)
+      navigate('/')
     }
 
     // let show = sessionStorage.getItem("show")
@@ -256,7 +264,7 @@ console.log("show",show)
       
       <InputBox>
       <SearchIcon/>
-     <Input placeholder='Search our store'/>
+     <Input sx={{width:"100%"}} onChange={handleInput}  placeholder='Search our store'/>
       </InputBox>
     
      <CloseIcon onClick={handleClose}/>
