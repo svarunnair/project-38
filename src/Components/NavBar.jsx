@@ -7,10 +7,17 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
+import NavMenu from './NavMenu';
+import PublicRoutes from '../Routes/PublicRoutes';
+import { useStore } from 'react-redux';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
     // border:"2px solid black",
+    position:"sticky",
+    width:"100%",
+    top:0,
+
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},
@@ -167,8 +174,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
   const TextBox = styled(Typography)(({ theme }) => ({
     color:'white',
-    fontSize:18,
+    fontSize:15,
     cursor:"pointer",
+    display:"flex",
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -221,6 +229,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 function NavBar() {
     const navigate=useNavigate()
     const [show,setShow]=useState(false)
+    const [menu,setMenu]=useState(false)
    
 
     const handleAcc=()=>{
@@ -229,6 +238,9 @@ function NavBar() {
 
 const handleCart=()=>{
   navigate('/cart')
+}
+const handleNew=()=>{
+  navigate('/students')
 }
 
 const handleSearch=()=>{
@@ -249,6 +261,11 @@ const handleInput=(e)=>{
       setShow(false)
       navigate('/')
     }
+
+    const handleMenu=()=>{
+       setMenu(true)
+    }
+  
 
     // let show = sessionStorage.getItem("show")
 
@@ -278,36 +295,47 @@ console.log("show",show)
      
      :  <OuterContainer>
         <InnerDiv>
-           <BoxOne>
+           <BoxOne >
            <SearchIcon onClick={handleSearch} sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
            <LocationOnOutlinedIcon sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
            </BoxOne>
 
-           <BoxTwo>
-            <TextBox>What's New </TextBox>
-            <TextBox>Luggage <ArrowDropDownIcon/></TextBox>
+           <BoxTwo  onMouseEnter={()=>setMenu(false)}>
+            <TextBox onClick={handleNew}>What's New </TextBox>
+            <TextBox onMouseEnter={handleMenu}>Luggage <ArrowDropDownIcon/></TextBox>
            </BoxTwo>
 
-           <BoxThree>
+           <BoxThree  onMouseEnter={()=>setMenu(false)} >
             <IconBox onClick={handleIcon}  as={"img"} src="https://skybags.co.in/cdn/shop/files/Image_1_0c0dbe99-a20b-4621-a8cf-54854a033dbd_140x.svg?v=1695290322"/>
            </BoxThree>
 
-           <BoxFour>
+
+           <BoxTwo  onMouseEnter={()=>setMenu(false)}>
+            <TextBox  onMouseEnter={handleMenu}>Backpack<ArrowDropDownIcon/></TextBox>
+            <TextBox  onMouseEnter={handleMenu}>Duffles<ArrowDropDownIcon/></TextBox>
+            <TextBox>Student Travel</TextBox>
+           </BoxTwo>
+
+
+           {/* <BoxFour>
             <FirstBox>
-                <SubBox>Backpack<ArrowDropDownIcon/></SubBox>
+                <SubBox sx={{fontSize:15,}}>Backpack<ArrowDropDownIcon/></SubBox>
                 <SubBox>Duffles<ArrowDropDownIcon/></SubBox>
+                <SecondBox>Student Travel</SecondBox>
 
             </FirstBox>
-            <SecondBox>Student Travel</SecondBox>
-           </BoxFour>
+           
+           </BoxFour> */}
 
            <BoxFive><PermIdentityOutlinedIcon onClick={handleAcc} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            <ShoppingCartOutlinedIcon onClick={handleCart} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            </BoxFive>
 
         </InnerDiv>
-
+        {menu?<NavMenu/>:<></>}
     </OuterContainer>}
+  
+    
 
     </>
   )

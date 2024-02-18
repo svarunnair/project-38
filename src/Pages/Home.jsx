@@ -87,7 +87,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     height:400,
     // boxShadow:'rgba(0, 0, 0, 5)',
   
-    position:"relative",
+  
 
     
 

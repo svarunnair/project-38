@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar';
 import Signin from './Pages/authPage/Signin';
 import Footer from './Components/Footer';
 import { useLocation } from 'react-router-dom';
+import NavMenu from './Components/NavMenu';
 
 function App() {
   const path=useLocation()
@@ -14,8 +15,9 @@ function App() {
 
   return (
     <div className="App">
-      { <NavBar/>}
-    <PublicRoutes/>
+       <NavBar/>
+       <PublicRoutes/>
+  
     <Footer/>
     </div>
   );
