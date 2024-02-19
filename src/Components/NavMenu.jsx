@@ -1,5 +1,6 @@
 import { Box, Typography, styled } from '@mui/material';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -61,6 +62,8 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
   const TextBox = styled(Typography)(({ theme }) => ({
 
+    cursor:"pointer",
+
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},
@@ -70,6 +73,14 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 
 function NavMenu() {
+  const navigate=useNavigate()
+
+  const handleMarvel=()=>{
+    navigate('/marvel')
+  }
+  const handleStudent=()=>{
+    navigate('student')
+  }
   return (
     <OuterContainer>
 
@@ -98,7 +109,8 @@ function NavMenu() {
             <FirstBox>
                 <TextBox sx={{fontSize:15,fontWeight:600}}>Collection</TextBox>
                 <TextBox>Fifa</TextBox>
-                <TextBox>Marvel</TextBox>
+                <TextBox onClick={handleMarvel}>Marvel</TextBox>
+                <TextBox onClick={handleStudent}>Students</TextBox>
                
                
             </FirstBox>
