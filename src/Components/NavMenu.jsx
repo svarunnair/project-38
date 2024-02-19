@@ -39,8 +39,6 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     flexDirection:"column",
     gap:'10px',
     
-  
-
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},

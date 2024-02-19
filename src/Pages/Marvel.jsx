@@ -152,6 +152,7 @@ function Marvel() {
 
             <ImageBox as={"img"} src={item.images[0]}/>
             <TextBox>{item.name}</TextBox>
+            <TextBox>₹{item.price}.00</TextBox>
         
         </DataMap>
     ))}
