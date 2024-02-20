@@ -75,9 +75,11 @@ function NavMenu() {
 
   const handleMarvel=()=>{
     navigate('/marvel')
+    window.location.reload()
   }
   const handleStudent=()=>{
-    navigate('student')
+    navigate('/students')
+    window.location.reload()
   }
   return (
     <OuterContainer>
