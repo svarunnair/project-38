@@ -104,15 +104,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     display:"flex",
     flexDirection:"column",
     width:"20%",
-    position:"fixed",
-    
+    position:"fixed", 
     gap:15,
-  
- 
     paddingTop:40,
    
-    
-  
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},

@@ -10,6 +10,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import SimpleImageSlider from 'react-simple-image-slider/dist/ImageSlider';
 import SimpleImageSlider from "react-simple-image-slider";
+import images from '../Components/images.jpg'
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -48,11 +49,17 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      gap:10,
+    padding:10,
+      display:"grid",
+      gridTemplateColumns:"repeat(2,1fr)",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
 
+  
   const OptionDiv = styled(Box)(({ theme }) => ({
     // border:"2px solid red",
     display:"flex",
@@ -62,7 +69,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      gap:20,
+      padding:30,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -81,19 +91,19 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const DataMap = styled(Box)(({ theme }) => ({
 
-    // border:"2px solid red",
+    border:"2px solid red",
     borderRadius:15,
-    background:"grey",
+    // background:"grey",
     height:400,
-    // boxShadow:'rgba(0, 0, 0, 5)',
-  
+    backgroundSize:"cover",
   
 
-    
-
+   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -105,7 +115,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop:0,
+      width:"46%",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -284,6 +297,8 @@ const sliderArr=[
 ]
 
 
+
+
 const instaVideos=[
   "https://cdn.shopify.com/videos/c/o/v/f7835b498f36457f87163e3e101dba58.mp4",
   "https://cdn.shopify.com/videos/c/o/v/708c383317e345fd8677b777098c3a8c.mp4",
@@ -343,7 +358,6 @@ const instaVideos=[
 
   <DataMap>
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
- <TextData></TextData>
   </DataMap>
 
   <DataMap sx={{background:"yellow"}}>
