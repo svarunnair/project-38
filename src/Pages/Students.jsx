@@ -37,11 +37,13 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 }));
 
 const MenuBox = styled(Box)(({ theme }) => ({
-//   border: "2px solid green",
+  // border: "2px solid green",
   display: "flex",
   flexDirection: "column",
   gap: 10,
   paddingLeft: 35,
+  paddingTop:30,
+  
  
   
 
@@ -95,7 +97,22 @@ const ImageBox = styled(Box)(({ theme }) => ({
 const ButtonBox = styled(Box)(({ theme }) => ({
   // border:"2px solid black",
   borderRadius: 10,
+  
+  
 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const Wrapper = styled(Box)(({ theme }) => ({
+  // border:"2px solid black",
+  display:"grid",
+  gap:10,
+  position:"sticky",
+  top:180,
+  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -141,10 +158,11 @@ function Students() {
 
   return (
     <OuterContainer>
-      <FirstBox></FirstBox>
+     
 
       <InnerDiv>
         <MenuBox>
+          <Wrapper>
           <ButtonBox
             sx={{
               height: 50,
@@ -210,6 +228,7 @@ function Students() {
           >
             PRICE
           </ButtonBox>
+          </Wrapper>
         </MenuBox>
 
 
