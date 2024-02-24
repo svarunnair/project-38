@@ -42,18 +42,19 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const ItemBox = styled(Box)(({ theme }) => ({
    
-    // border:"2px solid blue",
+    border:"2px solid blue",
     display:"flex",
     gap:20,
     padding:40,
+   
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {
-      gap:10,
-    padding:10,
-      display:"grid",
-      gridTemplateColumns:"repeat(2,1fr)",
+ 
+  maxWidth: "100%",
+  overflow: "auto",
+
     },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
@@ -91,11 +92,12 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const DataMap = styled(Box)(({ theme }) => ({
 
-    border:"2px solid red",
+    // border:"2px solid red",
     borderRadius:15,
     // background:"grey",
     height:400,
-    backgroundSize:"cover",
+    backgroundSize: "cover",
+    backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlECcSiDbZYISOgraQe4nhHDEhdDB_AriNQ&s")',
   
 
    
@@ -360,19 +362,19 @@ const instaVideos=[
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
   </DataMap>
 
-  <DataMap sx={{background:"yellow"}}>
+  <DataMap>
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
   </DataMap>
 
-  <DataMap sx={{background:"blue"}}>
+  <DataMap>
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
   </DataMap>
 
-  <DataMap sx={{background:"green"}}>
+  <DataMap>
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
   </DataMap>
 
-  <DataMap sx={{background:"pink"}}>
+  <DataMap>
     <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
   </DataMap>
 
