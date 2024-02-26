@@ -5,6 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getData, getDetail, patchCart, postCart } from '../Redux/data/action';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid black",
@@ -78,6 +80,8 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid green",
     width:"50%",
     height:"100%",
+    display:"flex",
+    alignItems:"center",
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},
@@ -247,6 +251,15 @@ const OuterContainer = styled(Box)(({ theme }) => ({
      [theme.breakpoints.down("sm")]: {},
      [theme.breakpoints.down("xs")]: {},
    }))
+   const IconBox = styled(Box)(({ theme }) => ({
+    // border:"2px solid red",
+     cursor:"pointer",
+     [theme.breakpoints.down("xl")]: {},
+     [theme.breakpoints.down("lg")]: {},
+     [theme.breakpoints.down("md")]: {},
+     [theme.breakpoints.down("sm")]: {},
+     [theme.breakpoints.down("xs")]: {},
+   }))
    const ImageText = styled(Typography)(({ theme }) => ({
 
      
@@ -264,9 +277,9 @@ function Detail() {
     const detail=useSelector((store)=>store.data.getDetailData)
     const dispatch=useDispatch()
     const [data,setData]=useState('')
-    const [arrow,setArrow]=useState(true)
     const mainData=useSelector((store)=>store.data.getMainData)
     const navigate=useNavigate()
+    const [count,setCount]=useState(0)
 
 
     const handleCart=()=>{
@@ -300,13 +313,27 @@ function Detail() {
 
   console.log("params",params)
 
+  const handleNext=()=>{
+    setCount(count+1)
+    if(count>1){
+      setCount(0)
+    }
+  }
+  const handlePre=()=>{
+    setCount(count-1)
+    if(count<1){
+      setCount(2)
+    }
+  }
+  console.log("count",count)
+
   useEffect(()=>{
      dispatch(getData())
   },[])
 
   useEffect(()=>{
      if(Object.keys(detail).length>0){
-      setData(detail.images[0])
+      setData(detail.images)
       detail.quant=1
      }
   },[detail])
@@ -335,7 +362,13 @@ function Detail() {
 
         
         <ImageContainer>
-        <ImageBox as={"img"} src={data}/>
+          <IconBox onClick={handlePre}>
+          <ArrowBackIosIcon/>
+          </IconBox>
+        <ImageBox as={"img"} src={data[count]}/>
+        <IconBox onClick={handleNext}>
+        <ArrowForwardIosIcon />
+        </IconBox>
 
         </ImageContainer>
 
@@ -354,8 +387,8 @@ function Detail() {
   <Button onClick={()=>handleReduce(detail.id,detail.quant)}>-</Button>
 </QuantityBox>
 <CartDiv>
-  <Button onClick={handleCart} sx={{background:"white",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{arrow&&<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
-  <Button onClick={handleBuy} sx={{background:"black",color:"white",width:300,height:50,":hover":{background:"black",color:"white"}}}>BUY NOW</Button>
+  <Button onClick={handleCart} sx={{background:"white",position:"static",color:"#0373bc",width:300,height:50,":hover":{background:"white",color:"#0373bc"}}}><ShoppingCartOutlinedIcon/> Add to Cart{<ArrowRightAltIcon sx={{color:'black',}}/>}</Button>
+  <Button onClick={handleBuy} sx={{background:"black",position:"static",color:"white",width:300,height:50,":hover":{background:"black",color:"white"}}}>BUY NOW</Button>
 </CartDiv>
 
 

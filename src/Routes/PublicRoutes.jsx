@@ -10,6 +10,9 @@ import Detail from '../Pages/Detail'
 import Cart from '../Pages/Cart'
 import Info from '../Pages/Info'
 import Search from '../Pages/Search'
+import Adventure from '../Pages/Adventure'
+import Collage from '../Pages/Collage'
+import Location from '../Pages/Location'
 
 
 
@@ -27,6 +30,9 @@ function PublicRoutes() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/info' element={<Info/>}/>
         <Route path='/search/:id' element={<Search/>}/>
+        <Route path='/adventure' element={<Adventure/>}/>
+        <Route path='/collage' element={<Collage/>}/>
+        <Route path='/location' element={<Location/>}/>
   
         
     </Routes>

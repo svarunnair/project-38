@@ -58,7 +58,7 @@ const DataMap = styled(Box)(({ theme }) => ({
       // border: "2px solid green",
       background:"#F5F5F5	",
       borderRadius:20,
-
+      cursor:"pointer",
       
     
       [theme.breakpoints.down("xl")]: {},

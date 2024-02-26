@@ -67,6 +67,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const ItemBox = styled(Box)(({ theme }) => ({
    
     // border:"2px solid red",
+ 
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},

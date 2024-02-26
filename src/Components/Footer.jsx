@@ -16,7 +16,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xs")]: {},
   }));
   const InnerDiv = styled(Box)(({ theme }) => ({
-    
+    // 
     // border:"2px solid red",
     display:"grid",
     gridTemplateColumns:"repeat(5,1fr)",

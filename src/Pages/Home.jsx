@@ -24,6 +24,17 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xs")]: {},
   }));
 
+  const VideoDiv = styled(Box)(({ theme }) => ({
+   
+      [theme.breakpoints.down("xl")]: {},
+      [theme.breakpoints.down("lg")]: {},
+      [theme.breakpoints.down("md")]: {
+        width:"100%",
+      },
+      [theme.breakpoints.down("sm")]: {},
+      [theme.breakpoints.down("xs")]: {},
+    }));
+
   const InnerDiv = styled(Box)(({ theme }) => ({
 
 
@@ -42,19 +53,21 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const ItemBox = styled(Box)(({ theme }) => ({
    
-    border:"2px solid blue",
+    // border:"6px solid blue",
     display:"flex",
+    scroll:'',
     gap:20,
     padding:40,
-   
 
     [theme.breakpoints.down("xl")]: {},
-    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("lg")]: {
+     
+    },
     [theme.breakpoints.down("md")]: {
- 
-  maxWidth: "100%",
-  overflow: "auto",
-
+      padding:10,
+      maxWidth:"300px",
+      overflow:"auto",
+      
     },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
@@ -67,12 +80,16 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     justifyContent:"center",
     gap:70,
     padding:50,
-
+    cursor:"pointer",
+    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {
-      gap:20,
-      padding:30,
+      gap:30,
+      padding:20,
+      maxWidth:300,
+      overflow:"auto",
+     
     },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
@@ -92,9 +109,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const DataMap = styled(Box)(({ theme }) => ({
 
-    // border:"2px solid red",
+  
     borderRadius:15,
-    // background:"grey",
+    // border:"1px solid red",
     height:400,
     backgroundSize: "cover",
     backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlECcSiDbZYISOgraQe4nhHDEhdDB_AriNQ&s")',
@@ -104,7 +121,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {
-
+     
+      height:200,
+      width:'400px',
     },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
@@ -124,16 +143,45 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
+  const ImageBoxOne = styled(Box)(({ theme }) => ({
+  
+    width:"100%",
+    paddingTop:100,
 
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop:50,
+     
+    },
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+
+  const ImageBoxTwo = styled(Box)(({ theme }) => ({
+  
+    width:"100%",
+
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {
+     
+    },
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
   const ImageDiv = styled(Box)(({ theme }) => ({
   
    display:"flex",
    justifyContent:"center",
-  //  border:"2px solid red",
+  //  border:"4px solid red",
+   width:"100%",
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -150,6 +198,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const SliderDiv = styled(Typography)(({ theme }) => ({
 
+    // border:"2px solid red",
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -186,7 +235,13 @@ gap:140,
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      gridTemplateColumns:"repeat(2,1fr)",
+      gap:20,
+      padding:0,
+      width:"100%",
+      
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -222,7 +277,10 @@ gap:140,
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      width:'100%',
+      
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -238,7 +296,11 @@ gap:140,
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop:10,
+      color:"white",
+      fontSize:15,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -266,12 +328,12 @@ gap:140,
 paddingTop:170,
 justifyItems:'center',
 
-
-   
-  
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop:70,
+      width:"100%",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -333,6 +395,12 @@ const instaVideos=[
   const handleImageFive=()=>{
     navigate(`/detail/${5}`)
   }
+  const handleClick=()=>{
+    navigate('/adventure')
+  }
+  const handleCollage=()=>{
+    navigate('/collage')
+  }
   
 
 
@@ -344,56 +412,58 @@ const instaVideos=[
     <OuterContainer>
 
       <InnerDiv>
-<video width={"100%"}  autoPlay muted loop src={skybag2} />
+        <VideoDiv>
+<video width={"100%"}   autoPlay muted loop src={skybag2} />
+</VideoDiv>
 
 <OptionDiv>
-  <TextTitle>ARCHIES</TextTitle>
-  <TextTitle>TRAVEL</TextTitle>
-  <TextTitle>WORK</TextTitle>
-  <TextTitle>ADVENTURE</TextTitle>
-  <TextTitle>SCHOOL</TextTitle>
-  <TextTitle>COLLAGE</TextTitle>
+  <TextTitle onClick={handleClick}>ARCHIES</TextTitle>
+  <TextTitle onClick={handleClick}>TRAVEL</TextTitle>
+  <TextTitle onClick={handleClick}>WORK</TextTitle>
+  <TextTitle onClick={handleClick}>ADVENTURE</TextTitle>
+  <TextTitle onClick={handleClick}>SCHOOL</TextTitle>
+  <TextTitle onClick={handleCollage}>COLLAGE</TextTitle>
 </OptionDiv>
 
 
 <ItemBox>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
   </DataMap>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
+    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
   </DataMap>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
+    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
   </DataMap>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
+    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
   </DataMap>
 
   <DataMap>
-    <ImageBox sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
+    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
   </DataMap>
 
 </ItemBox>
 
-<ImageBox as={"img"} src="https://skybags.co.in/cdn/shop/files/Skybags_Archies-collection_17th-Nov_Green_2048x.jpg?v=1700289280"/>
+<ImageBoxTwo as={"img"} src="https://skybags.co.in/cdn/shop/files/Skybags_Archies-collection_17th-Nov_Green_2048x.jpg?v=1700289280"/>
 
 
 <ImageDiv>
  
   <ArrowBackIosIcon sx={{position:"absolute",display:"flex"}}/>
-<ImageBox sx={{paddingTop:0}} as={"img"} src={imageArr[count]}/>
+<ImageBoxTwo sx={{paddingTop:0}} as={"img"} src={imageArr[count]}/>
 <ArrowForwardIosIcon sx={{position:"absolute",justifyContent:"right",}}/>
 </ImageDiv>
 
 
 
 <SliderDiv>
-  <ImageBox as={'img'} src={sliderArr[0]}/>
+  <ImageBoxTwo as={'img'} src={sliderArr[0]}/>
 </SliderDiv>
 
 <BottomText>WHY TO BUY FROM US</BottomText>

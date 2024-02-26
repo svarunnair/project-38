@@ -12,7 +12,9 @@ const initState={
     getCartData:[],
     patchCartData:[],
     postInfoData:[],
-    deleteCartData:[]
+    deleteCartData:[],
+   
+
 }
 
 export const dataReducer=(state=initState,action)=>{
@@ -21,7 +23,8 @@ export const dataReducer=(state=initState,action)=>{
         return({
             ...state,
             isError:false,
-            isLoading:true
+            isLoading:true,
+            getDataLoading:action.payload
         })
         case GET_DATA_SUCCESS:
         return({

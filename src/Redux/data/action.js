@@ -32,9 +32,10 @@ export const DELETE_CART_FAILURE="DELETE_CART_FAILURE"
 
 
 
-const getDataRequiest=()=>{
+const getDataRequiest=(loading)=>{
     return({
-        type:GET_DATA_REQUIEST
+        type:GET_DATA_REQUIEST,
+        payload:loading
     })
 }
 const getDataSuccess=(data)=>{
@@ -244,12 +245,12 @@ export const postInfo=(data)=>(dispatch)=>{
         dispatch(postInfoFailure(err))
     })
 }
-export const deleteCart=(id,data)=>(dispatch)=>{
+export const deleteCart=(id)=>(dispatch)=>{
     dispatch(deleteCartRequiest())
     return axios({
         url:`http://localhost:8000/cart/${id}`,
         method:"DELETE",
-        data
+        
     })
     .then((res)=>{
         dispatch(deleteCartSuccess(res.data))

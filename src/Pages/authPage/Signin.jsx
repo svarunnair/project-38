@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { postSignin } from '../../Redux/auth/authAction';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -28,7 +29,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      width:"70%",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -82,13 +85,14 @@ cursor:"pointer",
   }));
   const DivBox = styled(Typography)(({ theme }) => ({
     display:"flex",
-   
-    gap:277,
-    
+    // border:"2px solid red",
+    justifyContent:'space-between',
     
         [theme.breakpoints.down("xl")]: {},
         [theme.breakpoints.down("lg")]: {},
-        [theme.breakpoints.down("md")]: {},
+        [theme.breakpoints.down("md")]: {
+
+        },
         [theme.breakpoints.down("sm")]: {},
         [theme.breakpoints.down("xs")]: {},
       }));
@@ -134,6 +138,9 @@ function Signin() {
         navigate('/signup')
     }
   return (
+
+
+
     <OuterContainer>
 
         <InnerDiv>
@@ -151,7 +158,7 @@ function Signin() {
             </DivBox>
             <OutlinedInput onChange={handlePassword}  sx={{width:"100%",height:35,borderRadius:0}}/>
 
-            <ButtonBox onClick={handleClick} sx={{color:'white',background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
+            <ButtonBox onClick={handleClick} sx={{color:'white',position:"static",background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
             <TextBox onClick={handleCreate}>Create Account</TextBox>
             </InputDiv>
         </InnerDiv>

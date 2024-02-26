@@ -138,7 +138,7 @@ display:"flex",
   }));
 
 
-function Marvel() {
+function Adventure() {
     const mainData=useSelector((store)=>store.data.getMainData)
     const loading=useSelector((store)=>store.data.isLoading)
     const dispatch=useDispatch()
@@ -181,7 +181,7 @@ function Marvel() {
     {mainData?.map((item)=>(
         <DataMap >
 
-            <ImageBox onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]}/>
+            <ImageBox onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[2]}/>
             <TextBox>{item.name}</TextBox>
             <TextBox>₹{item.price}.00</TextBox>
         
@@ -201,4 +201,4 @@ function Marvel() {
   )
 }
 
-export default Marvel
+export default Adventure

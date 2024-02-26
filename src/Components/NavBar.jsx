@@ -17,6 +17,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     position:"sticky",
     width:"100%",
     top:0,
+    
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -45,11 +46,12 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const BoxOne = styled(Box)(({ theme }) => ({
 
     // border:"2px solid red",
-    width:"12%",
+    width:"15%",
     display:"flex",
     justifyContent:"center",
     alignItems:'center',
     gap:20,
+   
     
   
     [theme.breakpoints.down("xl")]: {},
@@ -267,6 +269,10 @@ const handleInput=(e)=>{
     const handleMenu=()=>{
        setMenu(true)
     }
+
+    const handleLocation=()=>{
+      navigate('/location')
+    }
   
 
     // let show = sessionStorage.getItem("show")
@@ -299,7 +305,7 @@ console.log("show",show)
         <InnerDiv>
            <BoxOne >
            <SearchIcon onClick={handleSearch} sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
-           <LocationOnOutlinedIcon sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
+           <LocationOnOutlinedIcon onClick={handleLocation} sx={{color:"white",fontSize:28,cursor:"pointer"}}/>
            </BoxOne>
 
            <BoxTwo  onMouseEnter={()=>setMenu(false)}>

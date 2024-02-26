@@ -2,7 +2,7 @@ import { Box, Button, Grid, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCart, patchCart } from '../Redux/data/action';
+import { deleteCart, getCart, patchCart } from '../Redux/data/action';
 
 
 
@@ -38,6 +38,34 @@ const TextBox = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const TextBoxOne = styled(Box)(({ theme }) => ({
+  // border: "2px solid red",
+  height:"30%",
+  display:"flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    height:"40%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextBoxPrice = styled(Box)(({ theme }) => ({
+  // border: "2px solid red",
+ display:"flex",
+ width:"100%",
+ 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 const CartData = styled(Box)(({ theme }) => ({
   // border:"2px solid red",
@@ -45,7 +73,9 @@ const CartData = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"80%",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -99,7 +129,7 @@ const TitleBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const GapDiv = styled(Box)(({ theme }) => ({
-  // border:"2px solid red",
+  // border:"2px solid blue",
   display:"flex",
   width:"30%",
   justifyContent:"space-between",
@@ -108,7 +138,9 @@ const GapDiv = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"50%",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -162,7 +194,7 @@ function Cart() {
   const handleReduce=(id,quant)=>{
 
     if(quant<2){
-      quant=1
+      dispatch(deleteCart(id))
     }
     else{
       let data={
@@ -211,12 +243,12 @@ function Cart() {
 <TextBoxSecond>{item.name}</TextBoxSecond>
     <GapDiv>
     
-    <TextBox sx={{border:"1px solid black",height:"30%"}}>
+    <TextBoxOne >
       <Button onClick={()=>handleAdd(item.id,item.quant)}>+</Button>
-      {item.quant}
+      <TextBox>{item.quant}</TextBox>
       <Button onClick={()=>handleReduce(item.id,item.quant)}>-</Button>
-      </TextBox>
-    <TextBox>₹{item.price}.00</TextBox>
+      </TextBoxOne>
+    <TextBoxPrice>₹{item.price}.00</TextBoxPrice>
     </GapDiv>
 
 
@@ -227,8 +259,8 @@ function Cart() {
         </CartData>
 
         <BottomDiv>
-          <TextBox>Sub Total : ₹{total}</TextBox>
-          <Button onClick={handleCheck} sx={{borderRadius:0,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Check out</Button>
+          <TextBox sx={{paddingTop:10,}}>Sub Total : ₹{total}</TextBox>
+          <Button onClick={handleCheck} sx={{borderRadius:0,position:"static",color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Check out</Button>
         </BottomDiv>
 
       </InnerContainer>

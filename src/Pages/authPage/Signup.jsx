@@ -24,7 +24,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     width:"28%",
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      width:"80%",
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -213,7 +215,7 @@ function Signup() {
                 <OutlinedInput onChange={handlePassword} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox sx={{paddingBottom:10,}}>
-                    <Button onClick={handleCreate} sx={{color:"white",borderRadius:0,background:"black",width:"100%",":hover":{color:"white",background:"black"}}}>Create</Button>
+                    <Button onClick={handleCreate} sx={{color:"white",borderRadius:0,position:"static",background:"black",width:"100%",":hover":{color:"white",background:"black",}}}>Create</Button>
                 </DivBox>
 
             </DetailBox>
