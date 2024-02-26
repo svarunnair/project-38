@@ -13,6 +13,7 @@ import Search from '../Pages/Search'
 import Adventure from '../Pages/Adventure'
 import Collage from '../Pages/Collage'
 import Location from '../Pages/Location'
+import Travel from '../Pages/Travel'
 
 
 
@@ -33,6 +34,7 @@ function PublicRoutes() {
         <Route path='/adventure' element={<Adventure/>}/>
         <Route path='/collage' element={<Collage/>}/>
         <Route path='/location' element={<Location/>}/>
+        <Route path='/travel' element={<Travel/>}/>
   
         
     </Routes>

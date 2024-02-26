@@ -401,7 +401,9 @@ const instaVideos=[
   const handleCollage=()=>{
     navigate('/collage')
   }
-  
+  const handleTravel=()=>{
+    navigate('/travel')
+  }
 
 
 
@@ -418,7 +420,7 @@ const instaVideos=[
 
 <OptionDiv>
   <TextTitle onClick={handleClick}>ARCHIES</TextTitle>
-  <TextTitle onClick={handleClick}>TRAVEL</TextTitle>
+  <TextTitle onClick={handleTravel}>TRAVEL</TextTitle>
   <TextTitle onClick={handleClick}>WORK</TextTitle>
   <TextTitle onClick={handleClick}>ADVENTURE</TextTitle>
   <TextTitle onClick={handleClick}>SCHOOL</TextTitle>
