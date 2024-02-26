@@ -170,6 +170,21 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
+  const WrapIcon = styled(Box)(({ theme }) => ({
+  
+    // border:"2px solid red",
+    position:'absolute',
+    justifyContent:"space-between",
+    paddingTop:250,
+    
+    display:"flex",
+    width:"100%",
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
   const ImageDiv = styled(Box)(({ theme }) => ({
   
    display:"flex",
@@ -404,7 +419,18 @@ const instaVideos=[
   const handleTravel=()=>{
     navigate('/travel')
   }
-
+  const handleNext=()=>{
+    setCount(count+1)
+    if(count>1){
+      setCount(0)
+    }
+  }
+  const handlePre=()=>{
+    setCount(count-1)
+   if(count<1){
+    setCount(2)
+   }
+  }
 
 
 
@@ -456,10 +482,13 @@ const instaVideos=[
 
 
 <ImageDiv>
+ <WrapIcon>
+ <ArrowBackIosIcon onClick={handlePre} />
+ <ArrowForwardIosIcon onClick={handleNext}/>
+ </WrapIcon>
  
-  <ArrowBackIosIcon sx={{position:"absolute",display:"flex"}}/>
 <ImageBoxTwo sx={{paddingTop:0}} as={"img"} src={imageArr[count]}/>
-<ArrowForwardIosIcon sx={{position:"absolute",justifyContent:"right",}}/>
+
 </ImageDiv>
 
 
