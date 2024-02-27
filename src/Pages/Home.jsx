@@ -337,8 +337,9 @@ gap:140,
 
   const DetailDiv = styled(Box)(({ theme }) => ({
 
-    border:"2px solid green",
+    // border:"2px solid green",
     width:"100%",
+    background:"#D3D3D3",
    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -358,6 +359,8 @@ gap:140,
     [theme.breakpoints.down("xs")]: {},
   }));
   const TextBox = styled(Typography)(({ theme }) => ({
+
+    color:"black",
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -396,6 +399,11 @@ function Home() {
   const dispatch=useDispatch()
   const [count,setCount]=useState(1)
   const [show,setShow]=useState(false)
+  const [showOne,setShowOne]=useState(false)
+  const [showTwo,setShowTwo]=useState(false)
+  const [showThree,setShowThree]=useState(false)
+  const [showFour,setShowFour]=useState(false)
+
 
 
   const imageArr=["https://skybags.co.in/cdn/shop/files/swirl_2048x.png?v=1698312347",
@@ -495,25 +503,41 @@ const instaVideos=[
     <ImageBoxOne  sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
 
   {show&&<DetailDiv>
-  <TextBox>Name:Collage Bag</TextBox>
-  <TextBox>Price:₹1120.00</TextBox>
+  <TextBox>Collage Bag</TextBox>
+  <TextBox>₹1120.00</TextBox>
   </DetailDiv>}
   </DataMap>
 
-  <DataMap>
+  <DataMap onMouseLeave={()=>setShowOne(false)} onMouseEnter={()=>setShowOne(true)}>
     <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
+    {showOne&&<DetailDiv>
+  <TextBox>Casual Bag</TextBox>
+  <TextBox>₹2220.00</TextBox>
+  </DetailDiv>}
   </DataMap>
 
-  <DataMap>
+  <DataMap onMouseLeave={()=>setShowTwo(false)} onMouseEnter={()=>setShowTwo(true)}>
     <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
+    {showTwo&&<DetailDiv>
+  <TextBox>Adventure Bag</TextBox>
+  <TextBox>₹3120.00</TextBox>
+  </DetailDiv>}
   </DataMap>
 
-  <DataMap>
+  <DataMap onMouseLeave={()=>setShowThree(false)} onMouseEnter={()=>setShowThree(true)}>
     <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
+    {showThree&&<DetailDiv>
+  <TextBox>Travel Bag</TextBox>
+  <TextBox>₹1520.00</TextBox>
+  </DetailDiv>}
   </DataMap>
 
-  <DataMap>
+  <DataMap onMouseLeave={()=>setShowFour(false)} onMouseEnter={()=>setShowFour(true)}>
     <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
+    {showFour&&<DetailDiv>
+  <TextBox>School Bag</TextBox>
+  <TextBox>₹1420.00</TextBox>
+  </DetailDiv>}
   </DataMap>
 
 </ItemBox>
