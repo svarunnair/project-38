@@ -326,15 +326,75 @@
     }
   ],
   "signup": [],
-  "cart": [],
+  "cart": [
+    {
+      "id": 3,
+      "name": "Archies Daypack 02 (E) Black",
+      "price": " 1880",
+      "description": "Meet the Archies Themed School Backpack, the epitome of GenZ style! Unleash your trendsetting spirit with this chic backpack, adorned with vibrant Archies motifs. Perfect for carrying your essentials, it's not just a bag—it's a fashion statement for the coolest crowd in town.",
+      "Brand": "Skybags",
+      "Style Name": "Backpacks",
+      "Trolley": "No",
+      "Gender": "Unisex",
+      "AgeGroup ": "Adults-Unisex",
+      "keyFeatures1": "3 Compartment",
+      "keyFeatures2": "1 Front Pocket",
+      "keyFeatures3": "Printed ID Tag",
+      "keyFeatures4": "Organiser",
+      "keyFeatures5": "Side Bottle Pocket",
+      "maufactured": "VIP Industries Limited, DGP House, 88C, Old Prabhadevi Road, Prabhadevi, Mumbai 400025. India Country of Origin - India",
+      "material": "Consider a monthly routine of a quick wipe-down or brushing. If you used water to wash your fabric pack, hang your pack to dry completely before putting it into action again. use cool water with a soft damp cloth to wipe down the interior and exterior of your pack, Never use bleach or harsh detergents on your bag. And remember to avoid any suede or leather trim on your pack as these areas could discolor if they get wet",
+      "terms": "For terms and conditions, please click here T&C",
+      "policy1": " We're here for you: Report any damaged shipment within 24 hours via email: talk2me@skybags.co.in, and we'll swiftly assist you",
+      "policy2": "Hassle-free returns: Enjoy a 3-day return window, just ensure your item is in top shape with original packaging and receipt.",
+      "policy3": "Reach out anytime at 022-41724444: Initiate returns through 'My Order' or contact us via email or phone for guidance.",
+      "images": [
+        "https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817",
+        "https://skybags.co.in/cdn/shop/files/2_05dbbbe6-2295-437d-91df-7ba1f274edc8_1800x1800.png?v=1700482273",
+        "https://skybags.co.in/cdn/shop/files/8_3d2ebcd0-946a-46ef-813b-f00f4d811db9_1800x1800.png?v=1700482273"
+      ],
+      "quant": 1
+    }
+  ],
   "info": [
+    
     {
       "email": "varunsnair1997@gmail.com",
       "firstName": "Varun",
       "lastName": "Nair",
-      "address": "32121",
+      "address": "g",
       "appartment": "Karippamon kizhakkathil THAZHATHUKULAKKADA .p.o kollam",
-      "id": 1
+      "item": [
+        {
+          "id": 3,
+          "name": "Archies Daypack 02 (E) Black",
+          "price": " 1880",
+          "description": "Meet the Archies Themed School Backpack, the epitome of GenZ style! Unleash your trendsetting spirit with this chic backpack, adorned with vibrant Archies motifs. Perfect for carrying your essentials, it's not just a bag—it's a fashion statement for the coolest crowd in town.",
+          "Brand": "Skybags",
+          "Style Name": "Backpacks",
+          "Trolley": "No",
+          "Gender": "Unisex",
+          "AgeGroup ": "Adults-Unisex",
+          "keyFeatures1": "3 Compartment",
+          "keyFeatures2": "1 Front Pocket",
+          "keyFeatures3": "Printed ID Tag",
+          "keyFeatures4": "Organiser",
+          "keyFeatures5": "Side Bottle Pocket",
+          "maufactured": "VIP Industries Limited, DGP House, 88C, Old Prabhadevi Road, Prabhadevi, Mumbai 400025. India Country of Origin - India",
+          "material": "Consider a monthly routine of a quick wipe-down or brushing. If you used water to wash your fabric pack, hang your pack to dry completely before putting it into action again. use cool water with a soft damp cloth to wipe down the interior and exterior of your pack, Never use bleach or harsh detergents on your bag. And remember to avoid any suede or leather trim on your pack as these areas could discolor if they get wet",
+          "terms": "For terms and conditions, please click here T&C",
+          "policy1": " We're here for you: Report any damaged shipment within 24 hours via email: talk2me@skybags.co.in, and we'll swiftly assist you",
+          "policy2": "Hassle-free returns: Enjoy a 3-day return window, just ensure your item is in top shape with original packaging and receipt.",
+          "policy3": "Reach out anytime at 022-41724444: Initiate returns through 'My Order' or contact us via email or phone for guidance.",
+          "images": [
+            "https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817",
+            "https://skybags.co.in/cdn/shop/files/2_05dbbbe6-2295-437d-91df-7ba1f274edc8_1800x1800.png?v=1700482273",
+            "https://skybags.co.in/cdn/shop/files/8_3d2ebcd0-946a-46ef-813b-f00f4d811db9_1800x1800.png?v=1700482273"
+          ],
+          "quant": 1
+        }
+      ],
+      "id": 2
     }
   ]
 }

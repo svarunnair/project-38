@@ -114,7 +114,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"1px solid red",
     height:400,
     backgroundSize: "cover",
-    backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlECcSiDbZYISOgraQe4nhHDEhdDB_AriNQ&s")',
+    backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGVmEfCUzaQvrNjM1dWQ4vlqSWv4ha_2-qLw&s")',
   
 
    
@@ -146,7 +146,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const ImageBoxOne = styled(Box)(({ theme }) => ({
   
     width:"100%",
-    paddingTop:100,
+    paddingTop:60,
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -181,7 +181,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     width:"100%",
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop:80,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -333,6 +335,37 @@ gap:140,
     [theme.breakpoints.down("xs")]: {},
   }));
 
+  const DetailDiv = styled(Box)(({ theme }) => ({
+
+    border:"2px solid green",
+    width:"100%",
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  const WrapperImage = styled(Box)(({ theme }) => ({
+
+    border:"2px solid green",
+    width:"100%",
+    
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  const TextBox = styled(Typography)(({ theme }) => ({
+    
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+
   const VideoIcon = styled(Box)(({ theme }) => ({
 
     // border:"2px solid green",
@@ -362,6 +395,7 @@ function Home() {
   const mainData=useSelector((store)=>store.data.getMainData)
   const dispatch=useDispatch()
   const [count,setCount]=useState(1)
+  const [show,setShow]=useState(false)
 
 
   const imageArr=["https://skybags.co.in/cdn/shop/files/swirl_2048x.png?v=1698312347",
@@ -456,8 +490,14 @@ const instaVideos=[
 
 <ItemBox>
 
-  <DataMap>
-    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+  <DataMap onMouseLeave={()=>setShow(false)} onMouseEnter={()=>setShow(true)}>
+       
+    <ImageBoxOne  sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+
+  {show&&<DetailDiv>
+  <TextBox>Name:Collage Bag</TextBox>
+  <TextBox>Price:₹1120.00</TextBox>
+  </DetailDiv>}
   </DataMap>
 
   <DataMap>

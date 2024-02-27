@@ -267,14 +267,22 @@ function Info() {
   }
 
   const handleClick=()=>{
+    if(email===""||firts===""||address===""||appartment===''){
+      alert('Kindly fill the data')
+    }
+    else{
     let data={
       email:email,
       firstName:firts,
       lastName:last,
       address:address,
-      appartment:appartment
+      appartment:appartment,
+      item:cartData
     }
     dispatch(postInfo(data))
+    alert("Order Placed")
+    navigate('/home')
+  }
   }
 
 
@@ -359,7 +367,7 @@ function Info() {
          <TextBox>Save this information for next time</TextBox>
          <BottomBox>
           <TextBox sx={{cursor:"pointer"}} onClick={handleReturn}>{"<"}Return to cart</TextBox>
-         <Button onClick={handleClick} sx={{width:"30%",cursor:"pointer",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
+         <Button onClick={handleClick} sx={{width:"30%",position:"static",cursor:"pointer",height:50,color:"white",background:"black",":hover":{color:"white",background:"black"}}}>Continue to Shoping</Button>
          </BottomBox>
          
          </InputDiv>

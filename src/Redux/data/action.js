@@ -32,10 +32,10 @@ export const DELETE_CART_FAILURE="DELETE_CART_FAILURE"
 
 
 
-const getDataRequiest=(loading)=>{
+const getDataRequiest=()=>{
     return({
         type:GET_DATA_REQUIEST,
-        payload:loading
+        
     })
 }
 const getDataSuccess=(data)=>{
