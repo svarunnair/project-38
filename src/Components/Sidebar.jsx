@@ -50,7 +50,9 @@ background:"white",
  paddingBottom:20,
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+        gap:100,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -92,7 +94,7 @@ background:"white",
     [theme.breakpoints.down("xs")]: {},
   }));
   const MapData = styled(Box)(({ theme }) => ({
-    // border:"2px solid green",
+    
     display:"flex",
  
     [theme.breakpoints.down("xl")]: {},
@@ -122,6 +124,15 @@ background:"white",
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
+  const Cross = styled(Box)(({ theme }) => ({
+    // border:"2px solid green",
+ 
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
 function Sidebar() {
     const dispatch=useDispatch()
     const cartData=useSelector((store)=>store.data.getCartData)
@@ -137,6 +148,10 @@ function Sidebar() {
     const handleClick=()=>{
         navigate('/cart')
     }
+
+    const handleRemove=()=>{
+        sessionStorage.removeItem('show')      
+    }
     
 
     useEffect(()=>{
@@ -147,7 +162,9 @@ function Sidebar() {
 <InnerContainer>
     <Wrapper>
     <TextBox sx={{fontSize:20,fontWeight:600,}}>Cart</TextBox>
-    <ClearIcon/>
+    <Cross sx={{cursor:"pointer"}} onClick={handleRemove}>
+    <ClearIcon />
+    </Cross>
     </Wrapper>
 
     <hr></hr>

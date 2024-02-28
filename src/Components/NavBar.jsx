@@ -242,8 +242,8 @@ function NavBar() {
     }
 
 const handleCart=()=>{
-  // sessionStorage.setItem("show","showCart")
-let showCart=  localStorage.setItem('show')
+  sessionStorage.setItem("show","showCart")
+// let showCart=  localStorage.setItem('show')
 }
 
 const handleNew=()=>{

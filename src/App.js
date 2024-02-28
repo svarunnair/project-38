@@ -16,18 +16,20 @@ function App() {
 
   // const showCart=sessionStorage.getItem("show")
 
- let showCart=localStorage.getItem("show")
+ console.log("Sessss",sessionStorage.getItem('show'))
 
+const cart=sessionStorage.getItem('show')
 
+console.log("carttsgvdhwvkd",cart)
 
   return (
     <div className="App">
      
-       <NavBar/>
-      {showCart&&<Sidebar/>}
+       {path.pathname!=="/payment"&&<NavBar/>}
+      {cart==="showCart"?<Sidebar/>:<></>}
       
        <PublicRoutes/>
-    <Footer/>
+       {path.pathname!=="/payment"&&<Footer/>}
     
 
     
