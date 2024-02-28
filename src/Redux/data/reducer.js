@@ -1,4 +1,4 @@
-import { DELETE_CART_FAILURE, DELETE_CART_REQUIEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUIEST, GET_CART_SUCCESS, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUIEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUIEST, POST_CART_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS } from "./action"
+import { DELETE_CART_FAILURE, DELETE_CART_REQUIEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUIEST, GET_CART_SUCCESS, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, GET_INFO_FAILURE, GET_INFO_REQUIEST, GET_INFO_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUIEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUIEST, POST_CART_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS } from "./action"
 
 
 
@@ -13,7 +13,7 @@ const initState={
     patchCartData:[],
     postInfoData:[],
     deleteCartData:[],
-   
+    getInfoData:[],
 
 }
 
@@ -136,6 +136,26 @@ export const dataReducer=(state=initState,action)=>{
             postInfoData:action.payload
         })
         case POST_INFO_FAILURE:
+        return({
+            ...state,
+            isError:true,
+            isLoading:false
+        })
+
+        case GET_INFO_REQUIEST:
+        return({
+            ...state,
+            isError:false,
+            isLoading:true
+        })
+        case GET_INFO_SUCCESS:
+        return({
+            ...state,
+            isError:false,
+            isLoading:false,
+            getInfoData:action.payload
+        })
+        case GET_INFO_FAILURE:
         return({
             ...state,
             isError:true,

@@ -25,6 +25,10 @@ export const POST_INFO_REQUIEST="POST_INFO_REQUIEST"
 export const POST_INFO_SUCCESS="POST_INFO_SUCCESS"
 export const POST_INFO_FAILURE="POST_INFO_FAILURE"
 
+export const GET_INFO_REQUIEST="GET_INFO_REQUIEST"
+export const GET_INFO_SUCCESS="GET_INFO_SUCCESS"
+export const GET_INFO_FAILURE="GET_INFO_FAILURE"
+
 export const DELETE_CART_REQUIEST="DELETE_CART_REQUIEST"
 export const DELETE_CART_SUCCESS="DELETE_CART_SUCCESS"
 export const DELETE_CART_FAILURE="DELETE_CART_FAILURE"
@@ -47,6 +51,23 @@ const getDataSuccess=(data)=>{
 const getDataFailure=()=>{
     return({
         type:GET_DATA_FAILURE
+    })
+}
+const getInfoRequiest=()=>{
+    return({
+        type:GET_INFO_REQUIEST,
+        
+    })
+}
+const getInfoSuccess=(data)=>{
+    return({
+        type:GET_INFO_SUCCESS,
+        payload:data
+    })
+}
+const getInfoFailure=()=>{
+    return({
+        type:GET_INFO_FAILURE
     })
 }
 
@@ -188,7 +209,7 @@ export const getDetail=(id)=>(dispatch)=>{
 export const postCart=(data)=>(dispatch)=>{
     dispatch(postCartRequiest())
     return axios({
-        url:" http://localhost:8000/cart",
+        url:"http://localhost:8000/cart",
         method:"POST",
         data
     })
@@ -245,6 +266,22 @@ export const postInfo=(data)=>(dispatch)=>{
         dispatch(postInfoFailure(err))
     })
 }
+
+export const getInfo=()=>(dispatch)=>{
+    dispatch(getInfoRequiest())
+    return axios({
+        url:"http://localhost:8000/info",
+        method:"GET",
+    })
+    .then((res)=>{
+        dispatch(getInfoSuccess(res.data))
+        console.log("res.infooo",res.data)
+    })
+    .catch((err)=>{
+        dispatch(getInfoFailure(err))
+    })
+}
+
 export const deleteCart=(id)=>(dispatch)=>{
     dispatch(deleteCartRequiest())
     return axios({

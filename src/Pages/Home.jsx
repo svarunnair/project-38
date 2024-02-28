@@ -10,7 +10,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import SimpleImageSlider from 'react-simple-image-slider/dist/ImageSlider';
 import SimpleImageSlider from "react-simple-image-slider";
-import images from '../Components/images.jpg'
+import Sidebar from '../Components/Sidebar';
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -25,6 +25,8 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
 
   const VideoDiv = styled(Box)(({ theme }) => ({
+    display:"flex",
+    overflow:"hidden",
    
       [theme.breakpoints.down("xl")]: {},
       [theme.breakpoints.down("lg")]: {},
@@ -109,10 +111,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
   const DataMap = styled(Box)(({ theme }) => ({
 
-  
+    transition:"all .2s",
     borderRadius:15,
     // border:"1px solid red",
     height:400,
+    transition:"1sec",
     backgroundSize: "cover",
     backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGVmEfCUzaQvrNjM1dWQ4vlqSWv4ha_2-qLw&s")',
   
@@ -403,6 +406,8 @@ function Home() {
   const [showTwo,setShowTwo]=useState(false)
   const [showThree,setShowThree]=useState(false)
   const [showFour,setShowFour]=useState(false)
+  // const [showCart,setShowCart]=useState(false)
+  
 
 
 
@@ -474,16 +479,19 @@ const instaVideos=[
    }
   }
 
-
-
+  
 
 
   return (
     <OuterContainer>
+    
 
       <InnerDiv>
         <VideoDiv>
-<video width={"100%"}   autoPlay muted loop src={skybag2} />
+           
+            <video width={"100%"}   autoPlay muted loop src={skybag1} />
+            <video width={"100%"}   autoPlay muted loop src={skybag2} />
+
 </VideoDiv>
 
 <OptionDiv>
@@ -498,9 +506,9 @@ const instaVideos=[
 
 <ItemBox>
 
-  <DataMap onMouseLeave={()=>setShow(false)} onMouseEnter={()=>setShow(true)}>
+  <DataMap  sx={{cursor:"pointer",":hover":{width:"130%", transition:"all .2s",}}} onMouseLeave={()=>setShow(false)} onMouseEnter={()=>setShow(true)}>
        
-    <ImageBoxOne  sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
+    <ImageBoxOne  onClick={handleImageOne} as={"img"} src="https://skybags.co.in/cdn/shop/files/SkybagsChrysalNavy_1800x1800.png?v=1698927386"/>
 
   {show&&<DetailDiv>
   <TextBox>Collage Bag</TextBox>
@@ -508,32 +516,32 @@ const instaVideos=[
   </DetailDiv>}
   </DataMap>
 
-  <DataMap onMouseLeave={()=>setShowOne(false)} onMouseEnter={()=>setShowOne(true)}>
-    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
+  <DataMap sx={{cursor:"pointer",":hover":{width:"130%",}}} onMouseLeave={()=>setShowOne(false)} onMouseEnter={()=>setShowOne(true)}>
+    <ImageBoxOne  onClick={handleImageTwo} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_416d0a44-6784-4f6d-b6b5-36b263699d6e_1800x1800.png?v=1699423862"/>
     {showOne&&<DetailDiv>
   <TextBox>Casual Bag</TextBox>
   <TextBox>₹2220.00</TextBox>
   </DetailDiv>}
   </DataMap>
 
-  <DataMap onMouseLeave={()=>setShowTwo(false)} onMouseEnter={()=>setShowTwo(true)}>
-    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
+  <DataMap sx={{cursor:"pointer",":hover":{width:"130%",}}} onMouseLeave={()=>setShowTwo(false)} onMouseEnter={()=>setShowTwo(true)}>
+    <ImageBoxOne  onClick={handleImageThree} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_98af7961-5571-4a22-b001-3e99e72a2024_1800x1800.png?v=1699338817"/>
     {showTwo&&<DetailDiv>
   <TextBox>Adventure Bag</TextBox>
   <TextBox>₹3120.00</TextBox>
   </DetailDiv>}
   </DataMap>
 
-  <DataMap onMouseLeave={()=>setShowThree(false)} onMouseEnter={()=>setShowThree(true)}>
-    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
+  <DataMap sx={{cursor:"pointer",":hover":{width:"130%",},}} onMouseLeave={()=>setShowThree(false)} onMouseEnter={()=>setShowThree(true)}>
+    <ImageBoxOne  onClick={handleImageFour} as={"img"} src="https://skybags.co.in/cdn/shop/files/01_1800x1800.png?v=1699422961"/>
     {showThree&&<DetailDiv>
   <TextBox>Travel Bag</TextBox>
   <TextBox>₹1520.00</TextBox>
   </DetailDiv>}
   </DataMap>
 
-  <DataMap onMouseLeave={()=>setShowFour(false)} onMouseEnter={()=>setShowFour(true)}>
-    <ImageBoxOne sx={{cursor:"pointer",":hover":{width:"130%",transition:"all .2s"}}} onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
+  <DataMap sx={{cursor:"pointer",":hover":{width:"130%",}}} onMouseLeave={()=>setShowFour(false)} onMouseEnter={()=>setShowFour(true)}>
+    <ImageBoxOne  onClick={handleImageFive} as={"img"} src="https://skybags.co.in/cdn/shop/files/1_3cb38464-d049-4782-9ab0-ed7be51046af_1800x1800.png?v=1699426266"/>
     {showFour&&<DetailDiv>
   <TextBox>School Bag</TextBox>
   <TextBox>₹1420.00</TextBox>

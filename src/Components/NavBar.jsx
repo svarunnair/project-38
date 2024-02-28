@@ -33,6 +33,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid red",
     display:"flex",
     background:"#0373bc",
+  
     // background:"rgba(255, 255, 255, 0.5)",
     // position:"absolute",
 
@@ -85,7 +86,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {
-        
+      width:"45%",
     },
     [theme.breakpoints.down("md")]: {
         width:"60%",
@@ -241,8 +242,10 @@ function NavBar() {
     }
 
 const handleCart=()=>{
-  navigate('/cart')
+  // sessionStorage.setItem("show","showCart")
+let showCart=  localStorage.setItem('show')
 }
+
 const handleNew=()=>{
   navigate('/students')
 }
