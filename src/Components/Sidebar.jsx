@@ -133,10 +133,12 @@ background:"white",
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
-function Sidebar() {
+function Sidebar({setshowCart}) {
     const dispatch=useDispatch()
     const cartData=useSelector((store)=>store.data.getCartData)
     const navigate=useNavigate()
+
+    console.log("setShowww",setshowCart,)
 
 
     console.log("Cartttttt",cartData)
@@ -150,7 +152,7 @@ function Sidebar() {
     }
 
     const handleRemove=()=>{
-        sessionStorage.removeItem('show')      
+      setshowCart(false)  
     }
     
 

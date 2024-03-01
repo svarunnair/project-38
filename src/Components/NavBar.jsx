@@ -1,5 +1,5 @@
 import { Box, Input, Typography, styled } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import NavMenu from './NavMenu';
 import PublicRoutes from '../Routes/PublicRoutes';
 import { useStore } from 'react-redux';
+import Sidebar from './Sidebar';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -235,6 +236,7 @@ function NavBar() {
     const navigate=useNavigate()
     const [show,setShow]=useState(false)
     const [menu,setMenu]=useState(false)
+    const [showCart,setshowCart]=useState(false)
    
 
     const handleAcc=()=>{
@@ -242,8 +244,7 @@ function NavBar() {
     }
 
 const handleCart=()=>{
-  sessionStorage.setItem("show","showCart")
-// let showCart=  localStorage.setItem('show')
+   setshowCart(true)
 }
 
 const handleNew=()=>{
@@ -342,10 +343,12 @@ console.log("show",show)
            <ShoppingCartOutlinedIcon onClick={handleCart} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            </BoxFive>
 
+{showCart&&<Sidebar/>}
         </InnerDiv>
         {menu?<NavMenu/>:<></>}
+        
     </OuterContainer>}
-  
+    <PublicRoutes setshowCart={setshowCart}/>
     
 
     </>

@@ -13,26 +13,11 @@ function App() {
   const path=useLocation()
 
 
-
-  // const showCart=sessionStorage.getItem("show")
-
- console.log("Sessss",sessionStorage.getItem('show'))
-
-const cart=sessionStorage.getItem('show')
-
-console.log("carttsgvdhwvkd",cart)
-
   return (
     <div className="App">
      
-       {path.pathname!=="/payment"&&<NavBar/>}
-      {cart==="showCart"?<Sidebar/>:<></>}
-      
-       <PublicRoutes/>
-       {path.pathname!=="/payment"&&<Footer/>}
-    
-
-    
+       {path.pathname!=="/payment"&&<NavBar/>}      
+       {path.pathname!=="/payment"&&<Footer/>} 
    
     </div>
   );

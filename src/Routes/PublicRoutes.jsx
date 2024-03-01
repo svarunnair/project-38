@@ -15,11 +15,20 @@ import Collage from '../Pages/Collage'
 import Location from '../Pages/Location'
 import Travel from '../Pages/Travel'
 import Payment from '../Pages/Payment'
+import Sidebar from '../Components/Sidebar'
 
 
 
-function PublicRoutes() {
+function PublicRoutes({setshowCart}) {
+
+  console.log("ppblicCartt",setshowCart)
+
+
+
   return (
+<>
+
+{/* <Sidebar setshowCart={setshowCart}/> */}
     <Routes>
 
         <Route path='/' element={<Home/>}/>
@@ -30,16 +39,20 @@ function PublicRoutes() {
         <Route path='/marvel' element={<Marvel/>}/>
         <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/info' element={<Info/>}/>
+        <Route path='/info' element={<Info setshowCart={setshowCart}/>}/>
         <Route path='/search/:id' element={<Search/>}/>
         <Route path='/adventure' element={<Adventure/>}/>
         <Route path='/collage' element={<Collage/>}/>
         <Route path='/location' element={<Location/>}/>
         <Route path='/travel' element={<Travel/>}/>
         <Route path='/payment' element={<Payment/>}/>
+        
+        
   
         
     </Routes>
+
+    </>
   )
 }
 

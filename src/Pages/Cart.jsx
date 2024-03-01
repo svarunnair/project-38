@@ -179,6 +179,7 @@ function Cart() {
   const cartData=useSelector((store)=>store.data.getCartData)
   
 
+
   const handleCheck=()=>{
     navigate('/info')
   }
