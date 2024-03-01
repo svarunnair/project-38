@@ -343,12 +343,12 @@ console.log("show",show)
            <ShoppingCartOutlinedIcon onClick={handleCart} sx={{color:'white',fontSize:35,  cursor:"pointer",}}/>
            </BoxFive>
 
-{showCart&&<Sidebar/>}
+{showCart&&<Sidebar setshowCart={setshowCart}/>}
         </InnerDiv>
         {menu?<NavMenu/>:<></>}
         
     </OuterContainer>}
-    <PublicRoutes setshowCart={setshowCart}/>
+    <PublicRoutes />
     
 
     </>
