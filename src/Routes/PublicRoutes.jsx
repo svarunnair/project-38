@@ -19,16 +19,16 @@ import Sidebar from '../Components/Sidebar'
 
 
 
-function PublicRoutes({setshowCart}) {
+function PublicRoutes() {
 
-  console.log("ppblicCartt",setshowCart)
+  
 
 
 
   return (
 <>
 
-{/* <Sidebar setshowCart={setshowCart}/> */}
+
     <Routes>
 
         <Route path='/' element={<Home/>}/>
@@ -39,7 +39,7 @@ function PublicRoutes({setshowCart}) {
         <Route path='/marvel' element={<Marvel/>}/>
         <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/info' element={<Info setshowCart={setshowCart}/>}/>
+        <Route path='/info' element={<Info/>}/>
         <Route path='/search/:id' element={<Search/>}/>
         <Route path='/adventure' element={<Adventure/>}/>
         <Route path='/collage' element={<Collage/>}/>

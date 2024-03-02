@@ -34,6 +34,11 @@ export const DELETE_CART_SUCCESS="DELETE_CART_SUCCESS"
 export const DELETE_CART_FAILURE="DELETE_CART_FAILURE"
 
 
+export const TEST_DATA_REQUIEST="TEST_DATA_REQUIEST"
+export const TEST_DATA_SUCCESS="TEST_DATA_SUCCESS"
+export const TEST_DATA_FAILURE="TEST_DATA_FAILURE"
+
+
 
 
 const getDataRequiest=()=>{
@@ -51,6 +56,24 @@ const getDataSuccess=(data)=>{
 const getDataFailure=()=>{
     return({
         type:GET_DATA_FAILURE
+    })
+}
+
+const testDataRequiest=()=>{
+    return({
+        type:TEST_DATA_REQUIEST,
+        
+    })
+}
+const testDataSuccess=(data)=>{
+    return({
+        type:TEST_DATA_SUCCESS,
+        payload:data
+    })
+}
+const testDataFailure=()=>{
+    return({
+        type:TEST_DATA_FAILURE
     })
 }
 const getInfoRequiest=()=>{
@@ -179,7 +202,7 @@ const deleteCartFailure=()=>{
 export const getData=()=>(dispatch)=>{
     dispatch(getDataRequiest())
     return axios({
-        url:" http://localhost:8000/data",
+        url:"http://localhost:8000/data",
         method:"GET"
     })
     .then((res)=>{
@@ -295,4 +318,15 @@ export const deleteCart=(id)=>(dispatch)=>{
     .catch((err)=>{
         dispatch(deleteCartFailure(err))
     })
+}
+
+
+export const testData=(data)=>(dispatch)=>{
+    dispatch(testDataRequiest())
+   
+        dispatch(testDataSuccess(data))
+
+  
+        dispatch(testDataFailure())
+
 }

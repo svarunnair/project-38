@@ -1,7 +1,7 @@
 import { Box, Button, Typography, styled } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCart } from '../Redux/data/action';
+import { getCart, testData } from '../Redux/data/action';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useNavigate } from 'react-router-dom';
 
@@ -156,6 +156,7 @@ function Sidebar({setshowCart}) {
     const handleRemove=()=>{
       setshowCart(false)  
     }
+
     
 
     useEffect(()=>{
