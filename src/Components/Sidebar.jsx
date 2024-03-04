@@ -151,6 +151,7 @@ function Sidebar({setshowCart}) {
     
     const handleClick=()=>{
         navigate('/cart')
+        setshowCart(false)
     }
 
     const handleRemove=()=>{
@@ -199,7 +200,7 @@ function Sidebar({setshowCart}) {
 
 </WrapperOne>
     
-    <Button onClick={handleClick} sx={{borderRadius:0,width:"80%",color:'white',background:"black",":hover":{color:'white',background:"black"}}}>Check Out</Button>
+    <Button onClick={handleClick} sx={{borderRadius:0,position:"static",cursor:"pointer",width:"80%",color:'white',background:"black",":hover":{color:'white',background:"black"}}}>Check Out</Button>
     </ButtonWrapper>
 </InnerContainer>
 
