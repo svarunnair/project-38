@@ -15,8 +15,8 @@ import Collage from '../Pages/Collage'
 import Location from '../Pages/Location'
 import Travel from '../Pages/Travel'
 import Payment from '../Pages/Payment'
-import Sidebar from '../Components/Sidebar'
 import School from '../Pages/School'
+import Fifa from '../Pages/Fifa'
 
 
 
@@ -48,6 +48,7 @@ function PublicRoutes() {
         <Route path='/travel' element={<Travel/>}/>
         <Route path='/payment' element={<Payment/>}/>
         <Route path='/school' element={<School/>}/>
+        <Route path='/fifa' element={<Fifa/>}/>
         
         
   
