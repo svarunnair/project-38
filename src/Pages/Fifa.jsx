@@ -127,6 +127,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     }));
 
 function Fifa() {
+  const mainData = useSelector((store) => store.data.getMainData);
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
   return (
     <></>
   )
