@@ -142,7 +142,7 @@ function Fifa() {
     dispatch(getData());
   }, []);
   return (
-    <></>
+    <OuterContainer></OuterContainer>
   )
 }
 
