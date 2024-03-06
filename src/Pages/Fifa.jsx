@@ -130,6 +130,17 @@ function Fifa() {
   const mainData = useSelector((store) => store.data.getMainData);
   const dispatch = useDispatch();
   const navigate=useNavigate()
+
+  const handleItem=(id)=>{
+    navigate(`/detail/${id}`)
+    sessionStorage.setItem("show", "one")
+  }
+
+  console.log("maiData", mainData);
+
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
   return (
     <></>
   )
