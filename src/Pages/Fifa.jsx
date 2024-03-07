@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid black",
@@ -135,6 +137,9 @@ function Fifa() {
     navigate(`/detail/${id}`)
     sessionStorage.setItem("show", "one")
   }
+
+  console.log("object")
+
 
   console.log("maiData", mainData);
 
