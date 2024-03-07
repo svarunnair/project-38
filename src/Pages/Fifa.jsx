@@ -138,7 +138,7 @@ function Fifa() {
     sessionStorage.setItem("show", "one")
   }
 
-  console.log("object")
+  
 
 
   console.log("maiData", mainData);
@@ -218,6 +218,7 @@ function Fifa() {
           </ButtonBox>
           </Wrapper>
         </MenuBox>
+        <InnerDiv></InnerDiv>
       </InnerDiv>
     </OuterContainer>
   )
