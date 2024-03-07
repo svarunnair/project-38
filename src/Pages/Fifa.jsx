@@ -143,7 +143,77 @@ function Fifa() {
   }, []);
   return (
     <OuterContainer>
-      <InnerDiv></InnerDiv>
+      <InnerDiv>
+      <MenuBox>
+          <Wrapper>
+          <ButtonBox
+            sx={{
+              height: 50,
+              padding: 1,
+              width: 270,
+              textAlign: "left",
+              color: "white",
+              background: "#0373bc",
+              ":hover": { color: "white", background: "#0373bc" },
+            }}
+          >
+            TYPE
+          </ButtonBox>
+          <ButtonBox
+            sx={{
+              height: 50,
+              padding: 1,
+              width: 270,
+              textAlign: "left",
+              color: "white",
+              background: "#0373bc",
+              ":hover": { color: "white", background: "#0373bc" },
+            }}
+          >
+            CATEGORY
+          </ButtonBox>
+          <ButtonBox
+            sx={{
+              height: 50,
+              padding: 1,
+              width: 270,
+              textAlign: "left",
+              color: "white",
+              background: "#0373bc",
+              ":hover": { color: "white", background: "#0373bc" },
+            }}
+          >
+            COLOR
+          </ButtonBox>
+          <ButtonBox
+            sx={{
+              height: 50,
+              padding: 1,
+              width: 270,
+              textAlign: "left",
+              color: "white",
+              background: "#0373bc",
+              ":hover": { color: "white", background: "#0373bc" },
+            }}
+          >
+            AGE GROUP
+          </ButtonBox>
+          <ButtonBox
+            sx={{
+              height: 50,
+              padding: 1,
+              width: 270,
+              textAlign: "left",
+              color: "white",
+              background: "#0373bc",
+              ":hover": { color: "white", background: "#0373bc" },
+            }}
+          >
+            PRICE
+          </ButtonBox>
+          </Wrapper>
+        </MenuBox>
+      </InnerDiv>
     </OuterContainer>
   )
 }
