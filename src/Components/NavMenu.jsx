@@ -77,6 +77,9 @@ function NavMenu() {
     navigate('/marvel')
     window.location.reload()
   }
+  const handleFifa=()=>{
+    navigate("/fifa")
+  }
   const handleStudent=()=>{
     navigate('/students')
     window.location.reload()
@@ -108,7 +111,7 @@ function NavMenu() {
             </FirstBox>
             <FirstBox>
                 <TextBox sx={{fontSize:15,fontWeight:600}}>Collection</TextBox>
-                <TextBox>Fifa</TextBox>
+                <TextBox onClick={handleFifa}>Fifa</TextBox>
                 <TextBox onClick={handleMarvel}>Marvel</TextBox>
                 <TextBox onClick={handleStudent}>Students</TextBox>
                

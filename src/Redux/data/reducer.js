@@ -1,4 +1,4 @@
-import { DELETE_CART_FAILURE, DELETE_CART_REQUIEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUIEST, GET_CART_SUCCESS, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, GET_INFO_FAILURE, GET_INFO_REQUIEST, GET_INFO_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUIEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUIEST, POST_CART_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS, TEST_DATA_REQUIEST, TEST_DATA_SUCCESS } from "./action"
+import { DELETE_CART_FAILURE, DELETE_CART_REQUIEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUIEST, GET_CART_SUCCESS, GET_DATA_FAILURE, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, GET_INFO_FAILURE, GET_INFO_REQUIEST, GET_INFO_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUIEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUIEST, POST_CART_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS, POST_REVIEW_FAILURE, POST_REVIEW_REQUIEST, POST_REVIEW_SUCCESS, TEST_DATA_FAILURE, TEST_DATA_REQUIEST, TEST_DATA_SUCCESS } from "./action"
 
 
 
@@ -14,7 +14,8 @@ const initState={
     postInfoData:[],
     deleteCartData:[],
     getInfoData:[],
-    dataTest:true
+    dataTest:true,
+    postReviewData:[]
 
 }
 
@@ -34,7 +35,28 @@ export const dataReducer=(state=initState,action)=>{
             isLoading:false,
             getMainData:action.payload
         })
-        case GET_DATA_REQUIEST:
+        case GET_DATA_FAILURE:
+        return({
+            ...state,
+            isError:true,
+            isLoading:false
+        })
+
+        case POST_REVIEW_REQUIEST:
+        return({
+            ...state,
+            isError:false,
+            isLoading:true,
+            postReviewData:action.payload
+        })
+        case POST_REVIEW_SUCCESS:
+        return({
+            ...state,
+            isError:false,
+            isLoading:false,
+            getMainData:action.payload
+        })
+        case POST_REVIEW_FAILURE:
         return({
             ...state,
             isError:true,
@@ -56,7 +78,7 @@ export const dataReducer=(state=initState,action)=>{
             isLoading:false,
             dataTest:action.payload
         })
-        case TEST_DATA_REQUIEST:
+        case TEST_DATA_FAILURE:
         return({
             ...state,
             isError:true,

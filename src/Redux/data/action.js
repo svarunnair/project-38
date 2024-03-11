@@ -33,10 +33,13 @@ export const DELETE_CART_REQUIEST="DELETE_CART_REQUIEST"
 export const DELETE_CART_SUCCESS="DELETE_CART_SUCCESS"
 export const DELETE_CART_FAILURE="DELETE_CART_FAILURE"
 
-
 export const TEST_DATA_REQUIEST="TEST_DATA_REQUIEST"
 export const TEST_DATA_SUCCESS="TEST_DATA_SUCCESS"
 export const TEST_DATA_FAILURE="TEST_DATA_FAILURE"
+
+export const POST_REVIEW_REQUIEST="POST_REVIEW_REQUIEST"
+export const POST_REVIEW_SUCCESS="POST_REVIEW_SUCCESS"
+export const POST_REVIEW_FAILURE="POST_REVIEW_FAILURE"
 
 
 
@@ -195,6 +198,25 @@ const deleteCartFailure=()=>{
     })
 }
 
+const postReviewRequiest=()=>{
+    return({
+        type:POST_REVIEW_REQUIEST,
+        
+    })
+}
+const postReviewSuccess=(data)=>{
+    return({
+        type:POST_REVIEW_SUCCESS,
+        payload:data
+    })
+}
+const postReviewFailure=()=>{
+    return({
+        type:POST_REVIEW_FAILURE
+    })
+}
+
+
 
 
 
@@ -329,4 +351,20 @@ export const testData=(data)=>(dispatch)=>{
   
         dispatch(testDataFailure())
 
+}
+
+
+export const postReview=(data)=>(dispatch)=>{
+    dispatch(postReviewRequiest())
+    return axios({
+        url:"http://localhost:8000/review",
+        method:"POST",
+        data
+    })
+    .then((res)=>{
+        dispatch(postReviewSuccess(res.data))
+    })
+    .catch((err)=>{
+        dispatch(postReviewFailure(err))
+    })
 }
