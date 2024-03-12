@@ -156,7 +156,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid red",
     background:"#2AAA8A",
     width:"100%",
-    height:650,
+    height:400,
     display:"grid",
     justifyItems:"center",
    
@@ -173,6 +173,33 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     fontSize:40,
     fontWeight:600,
     padding:40,
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }))
+
+  const ReviewNote = styled(Typography)(({ theme }) => ({
+    color:"black",
+    fontSize:15,
+
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }))
+
+  const ButtonReview = styled(Button)(({ theme }) => ({
+
+    background:"#0373bc",
+    color:"white",
+    ":hover":{background:"#0373bc",
+    color:"white",},
+    textTransform:"none",
    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -215,7 +242,11 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     // border:"2px solid red",
     background:"white",
     width:"90%",
-    height:400,
+    height:200,
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    gap:10,
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -451,7 +482,10 @@ function Detail() {
 
   <ReviewText>CUSTOMER REVIEWS</ReviewText>
 
-<InnerDiv></InnerDiv>
+<InnerDiv>
+<ReviewNote>Be the first to write a review</ReviewNote>
+<ButtonReview>Write a Review</ButtonReview>
+</InnerDiv>
 
 </ReviewBox>
         {/* <ImageBox as={"img"} src=""/> */}

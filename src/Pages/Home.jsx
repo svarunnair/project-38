@@ -484,6 +484,10 @@ const instaVideos=[
 
   console.log("object")
 
+  const handleImage=()=>{
+    navigate('/adventure')
+  }
+
 
   return (
     <OuterContainer>
@@ -562,14 +566,14 @@ const instaVideos=[
  <ArrowForwardIosIcon onClick={handleNext}/>
  </WrapIcon>
  
-<ImageBoxTwo sx={{paddingTop:0}} as={"img"} src={imageArr[count]}/>
+<ImageBoxTwo onClick={handleImage} sx={{paddingTop:0}} as={"img"} src={imageArr[count]}/>
 
 </ImageDiv>
 
 
 
 <SliderDiv>
-  <ImageBoxTwo as={'img'} src={sliderArr[0]}/>
+  <ImageBoxTwo onClick={handleImage} as={'img'} src={sliderArr[0]}/>
 </SliderDiv>
 
 <BottomText>WHY TO BUY FROM US</BottomText>
