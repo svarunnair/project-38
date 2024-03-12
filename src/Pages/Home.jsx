@@ -293,6 +293,7 @@ gap:140,
     display:"grid",
     justifyItems:"center",
     justifyContent:"center",
+    position:"relative",
     
   
     [theme.breakpoints.down("xl")]: {},

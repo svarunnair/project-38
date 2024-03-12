@@ -273,6 +273,9 @@ const handleInput=(e)=>{
     const handleMenu=()=>{
        setMenu(true)
     }
+    const handleStudent=()=>{
+      navigate("/students")
+    }
 
     const handleLocation=()=>{
       navigate('/location')
@@ -325,7 +328,7 @@ console.log("show",show)
            <BoxTwo  onMouseEnter={()=>setMenu(false)}>
             <TextBox  onMouseEnter={handleMenu}>Backpack<ArrowDropDownIcon/></TextBox>
             <TextBox  onMouseEnter={handleMenu}>Duffles<ArrowDropDownIcon/></TextBox>
-            <TextBox>Student Travel</TextBox>
+            <TextBox onClick={handleStudent}>Student Travel</TextBox>
            </BoxTwo>
 
 
