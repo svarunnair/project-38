@@ -99,10 +99,17 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const IconBox = styled(Box)(({ theme }) => ({
    width:"50%",
    cursor:"pointer",
+  //  border:"2px solid red",
     
-    [theme.breakpoints.down("xl")]: {},
-    [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("xl")]: {
+      
+    },
+    [theme.breakpoints.down("lg")]: {
+   
+    },
+    [theme.breakpoints.down("md")]: {
+      
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
