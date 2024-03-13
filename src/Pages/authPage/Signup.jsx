@@ -126,6 +126,14 @@ function Signup() {
   }
 
   const handleCreate=()=>{
+    if(email===""||first===""){
+      alert("Kindly fill the all data")
+    }
+    else{
+      if(!email.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+         alert("Kindly give the valid Email Id")
+      }
+      else{
     let data={
       email:email,
       password:password,
@@ -139,6 +147,8 @@ function Signup() {
     alert("Details uploaded successfully")
     navigate('/home')
   }
+  }
+}
 
   console.log("gendrrrrrrrrrrrr",gender)
 

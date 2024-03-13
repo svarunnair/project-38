@@ -115,9 +115,14 @@ function Signin() {
     const dispatch=useDispatch()
 
 
+
     const handleEmail=(e)=>{
        let value=e.target.value 
+       if(value.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+         
+       }
        setEmail(value)
+
     }
     const handlePassword=(e)=>{
       let value=e.target.value 
@@ -151,7 +156,8 @@ function Signin() {
 
             <InputDiv>
             <InputText  sx={{paddingBottom:1,fontSize:10,fontWeight:600,}}>EMAIL</InputText>
-            <OutlinedInput onChange={handleEmail} sx={{width:"100%",height:35,borderRadius:0}}/>
+            <OutlinedInput  onChange={handleEmail} sx={{width:"100%",height:35,borderRadius:0}}/>
+          
            <DivBox>
             <InputText sx={{paddingTop:2,fontSize:10,fontWeight:600,}}>PASSWORD</InputText>
             <InputText sx={{paddingTop:2,justifyContent:'right',fontSize:12}}>Forgot?</InputText>
