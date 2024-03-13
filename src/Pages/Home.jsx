@@ -150,6 +150,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   
     width:"100%",
     paddingTop:60,
+    transition: "2 sec",
 
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
