@@ -134,6 +134,9 @@ function Footer() {
     const handleYoutube=()=>{
       window.location.href = "https://www.youtube.com/channel/UCas7FFmlVSSExrUsMVvhMrw"
     }
+    const handleFb=()=>{
+      window.location.href = "https://www.facebook.com/Skybags/"
+    }
 
     const handleAbout=()=>{
         if(about===false){
@@ -203,10 +206,10 @@ function Footer() {
 <DivBox>
 <TextBox sx={{fontWeight:600}}>Find us on</TextBox>
 <IconBox>
-<FacebookIcon sx={{color:"#0373bc",fontSize:30,}}/>
-<InstagramIcon sx={{color:"#0373bc",fontSize:30,}}/>
-<YouTubeIcon onClick={handleYoutube} sx={{color:"#0373bc",fontSize:30,}}/>
-<XIcon sx={{color:"#0373bc",fontSize:30,}}/>
+<FacebookIcon  onClick={handleFb} sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
+<InstagramIcon sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
+<YouTubeIcon onClick={handleYoutube} sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
+<XIcon sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
 
 </IconBox>
 </DivBox>
