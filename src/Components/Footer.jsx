@@ -4,6 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
+import { useHref } from 'react-router-dom';
 const OuterContainer = styled(Box)(({ theme }) => ({
 
     // border:"2px solid black",
@@ -130,6 +131,9 @@ function Footer() {
     const [about,setAbout]=useState(false)
     const [choose,setChoose]=useState(false)
 
+    const handleYoutube=()=>{
+      window.location.href = "https://www.youtube.com/channel/UCas7FFmlVSSExrUsMVvhMrw"
+    }
 
     const handleAbout=()=>{
         if(about===false){
@@ -201,7 +205,7 @@ function Footer() {
 <IconBox>
 <FacebookIcon sx={{color:"#0373bc",fontSize:30,}}/>
 <InstagramIcon sx={{color:"#0373bc",fontSize:30,}}/>
-<YouTubeIcon sx={{color:"#0373bc",fontSize:30,}}/>
+<YouTubeIcon onClick={handleYoutube} sx={{color:"#0373bc",fontSize:30,}}/>
 <XIcon sx={{color:"#0373bc",fontSize:30,}}/>
 
 </IconBox>
