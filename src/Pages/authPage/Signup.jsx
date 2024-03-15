@@ -124,6 +124,7 @@ function Signup() {
     let value=e.target.value 
     setPhone(value)
   }
+  console.log("object")
 
   const handleCreate=()=>{
     if(email===""||first===""){
