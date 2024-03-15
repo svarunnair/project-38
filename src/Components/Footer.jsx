@@ -138,6 +138,10 @@ function Footer() {
       window.location.href = "https://www.facebook.com/Skybags/"
     }
 
+    const handleInsta=()=>{
+      window.location.href = "https://www.instagram.com/inskybags/"
+    }
+
     const handleAbout=()=>{
         if(about===false){
             setAbout(true)
@@ -207,7 +211,7 @@ function Footer() {
 <TextBox sx={{fontWeight:600}}>Find us on</TextBox>
 <IconBox>
 <FacebookIcon  onClick={handleFb} sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
-<InstagramIcon sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
+<InstagramIcon onClick={handleInsta} sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
 <YouTubeIcon onClick={handleYoutube} sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
 <XIcon sx={{color:"#0373bc",cursor:"pointer",fontSize:30,}}/>
 
