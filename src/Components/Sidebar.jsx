@@ -158,7 +158,7 @@ function Sidebar({setshowCart}) {
       setshowCart(false)  
     }
 
-    
+    console.log("object")
 
     useEffect(()=>{
       dispatch(getCart())
