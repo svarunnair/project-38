@@ -122,6 +122,7 @@ function Signin() {
          
        }
        setEmail(value)
+       console.log("object")
 
     }
     const handlePassword=(e)=>{
