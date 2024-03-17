@@ -114,7 +114,7 @@ function Signin() {
     const [password,setPassword]=useState("")
     const dispatch=useDispatch()
 
-
+console.log("object")
 
     const handleEmail=(e)=>{
        let value=e.target.value 
