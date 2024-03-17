@@ -124,6 +124,7 @@ console.log("object")
        setEmail(value)
        console.log("object")
        console.log("object")
+       console.log("object")
 
     }
     const handlePassword=(e)=>{
