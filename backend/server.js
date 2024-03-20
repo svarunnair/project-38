@@ -3,11 +3,15 @@ const app=express()
 require("dotenv").config()
 const {connection}=require("./db")
 const {userControler}=require("./routes/user.route")
+const { dataControler } = require("./routes/data.router")
+const { authentication } = require("./middleware/authentication")
 
 
 app.use(express.json())
 
 app.use("/user",userControler)
+app.use(authentication)
+app.use("/data",dataControler)
 
 
 

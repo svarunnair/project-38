@@ -2,12 +2,9 @@ const {Router}=require("express")
 const {userModel}=require("../models/user.models")
 const userControler=Router()
 const bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken')
 
-userControler.get("/",async(req,res)=>{
-  const user=await userModel.find()
-  res.send(user)
-})
+
 
 userControler.post("/signup",(req,res)=>{
     const {name,email,password}=req.body
@@ -31,6 +28,7 @@ userControler.post("/signup",(req,res)=>{
      
     });
 })
+
 
 
 

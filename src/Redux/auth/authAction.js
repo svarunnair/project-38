@@ -49,7 +49,7 @@ const postSigninFailure=()=>{
 export const postSignup=(data)=>(dispatch)=>{
     dispatch(postSignupRequiest())
     return axios({
-        url:"http://localhost:8000/signup",
+        url:"http://localhost:1010/user/signup",
         method:"POST",
         data
     })

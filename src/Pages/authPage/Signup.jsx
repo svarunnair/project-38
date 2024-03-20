@@ -122,16 +122,16 @@ function Signup() {
   }
   const handlePhone=(e)=>{
     let value=e.target.value 
-    if(value.length<10){
-      alert("")
-    }
-    setPhone(value)
+    setPhone(value)  
   }
-  console.log("object")
+
 
   const handleCreate=()=>{
-    if(email===""||first===""){
+    if(email===""||first===""||phone===""){
       alert("Kindly fill the all data")
+    }
+    if(phone.length<10){
+      alert("Please enter valid mobile number")
     }
     else{
       if(!email.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
@@ -141,7 +141,7 @@ function Signup() {
     let data={
       email:email,
       password:password,
-      FirstName:first,
+      name:first,
       LastName:last,
       mobile:phone,
       DOB:date,
@@ -188,20 +188,16 @@ function Signup() {
         <Select 
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-        //   value={salutation}
-      
+          value={gender}
           label="Salutation"
-        >
+>
 
-        
-
-
-<MenuItem onChange={handleGender}  value="">
+<MenuItem onChange={handleGender}  value={""}>
            
           </MenuItem>
-          <MenuItem value={"Mr."}>Male</MenuItem>
-          <MenuItem value={"Mrs."}>Female</MenuItem>
-          <MenuItem value={"Mrss."}>Other</MenuItem>
+          <MenuItem value={"male"}>Male</MenuItem>
+          <MenuItem value={"female"}>Female</MenuItem>
+          <MenuItem value={"other"}>Other</MenuItem>
          
         </Select>
       </FormControl>
