@@ -118,14 +118,11 @@ console.log("object")
 
     const handleEmail=(e)=>{
        let value=e.target.value 
-       if(value.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
-         
+       if(!value.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        alert("Kindly give the valid Email Id")
        }
        setEmail(value)
-       console.log("object")
-       console.log("object")
-       console.log("object")
-
+      
     }
     const handlePassword=(e)=>{
       let value=e.target.value 

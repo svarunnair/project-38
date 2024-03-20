@@ -122,6 +122,9 @@ function Signup() {
   }
   const handlePhone=(e)=>{
     let value=e.target.value 
+    if(value.length<10){
+      alert("")
+    }
     setPhone(value)
   }
   console.log("object")
@@ -151,7 +154,6 @@ function Signup() {
   }
 }
 
-  console.log("gendrrrrrrrrrrrr",gender)
 
 
 
@@ -223,7 +225,7 @@ function Signup() {
                 </DivBox>
                 <DivBox>
                 <InputText>PASSWORD</InputText>
-                <OutlinedInput onChange={handlePassword} sx={{height:40,width:"100%"}}/>
+                <OutlinedInput  type='password' onChange={handlePassword} sx={{height:40,width:"100%"}}/>
                 </DivBox>
                 <DivBox sx={{paddingBottom:10,}}>
                     <Button onClick={handleCreate} sx={{color:"white",borderRadius:0,position:"static",background:"black",width:"100%",":hover":{color:"white",background:"black",}}}>Create</Button>

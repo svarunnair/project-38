@@ -1,0 +1,3 @@
+signup = http://localhost:1010/user/signup
+login = http://localhost:1010/user/login
+
