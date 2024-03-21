@@ -142,6 +142,7 @@ display:"flex",
 
 function Adventure() {
     const mainData=useSelector((store)=>store.data.getMainData)
+    const token = localStorage.getItem("token")
     const loading=useSelector((store)=>store.data.isLoading)
     const dispatch=useDispatch()
     const navigate=useNavigate()
@@ -155,7 +156,7 @@ function Adventure() {
     }
 
     useEffect(()=>{
-       dispatch(getData())
+       dispatch(getData(token))
     },[])
 
    
@@ -178,9 +179,11 @@ function Adventure() {
 
 
         <InnerDiv>
+          
+      
 
-
-    {mainData?.map((item)=>(
+   
+    {/* {mainData?.map((item)=>(
         <DataMap >
 
             <ImageBox onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[2]}/>
@@ -188,7 +191,8 @@ function Adventure() {
             <TextBox>₹{item.price}.00</TextBox>
         
         </DataMap>
-    ))}
+    ))} */}
+  
 
 
 

@@ -69,15 +69,16 @@ export const postSignin=(data)=>(dispatch)=>{
     console.log("datatatat",data)
     dispatch(postSigninRequiest())
     return axios({
-        url:"https://reqres.in/api/register",
+        url:"http://localhost:1010/user/login",
         method:"POST",
         data
     })
     .then((res)=>{
         dispatch(postSigninSuccess(res.data))
-        console.log("res.data",res.data)
-        localStorage.setItem("token",res.data.token)
-    
+        console.log("res.data,loginn",res.data.token)
+        if(res.data.token){
+            localStorage.setItem("token",res.data.token)
+        }   
     })
     .catch((err)=>{
         dispatch(postSigninFailure())

@@ -72,17 +72,35 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 function NavMenu() {
   const navigate=useNavigate()
+  const token=localStorage.getItem("token")
 
   const handleMarvel=()=>{
-    navigate('/marvel')
-    window.location.reload()
+    if(token){
+      navigate('/marvel')
+      window.location.reload()
+    }
+    else{
+      alert("Please login")
+    }
+    
   }
   const handleFifa=()=>{
-    navigate("/fifa")
+    if(token){
+      navigate('/fifa')
+      window.location.reload()
+    }
+    else{
+      alert("Please login")
+    }
   }
   const handleStudent=()=>{
-    navigate('/students')
-    window.location.reload()
+    if(token){
+      navigate('/students')
+      window.location.reload()
+    }
+    else{
+      alert("Please login")
+    }
   }
   return (
     <OuterContainer>

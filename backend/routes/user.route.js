@@ -20,7 +20,7 @@ userControler.post("/signup",(req,res)=>{
 
         try{
             await user.save()
-            res.send({success:true,user})
+            res.send({msg:"Success"})
         }
         catch(err){
             res.send("error",err)
@@ -43,7 +43,6 @@ userControler.post("/login",async(req,res)=>{
         if(result){
             var token = jwt.sign({userId:user._id}, process.env.SECRET);
             res.send({msg:user, token})
-
         }
         else{
             res.send("please signup")

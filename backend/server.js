@@ -5,10 +5,11 @@ const {connection}=require("./db")
 const {userControler}=require("./routes/user.route")
 const { dataControler } = require("./routes/data.router")
 const { authentication } = require("./middleware/authentication")
+const cors = require('cors')
 
 
 app.use(express.json())
-
+app.use(cors())
 app.use("/user",userControler)
 app.use(authentication)
 app.use("/data",dataControler)

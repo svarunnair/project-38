@@ -497,9 +497,9 @@ function Detail() {
           {mainData?.slice(0,5).map((item)=>(
             <MapList>
 
-              <ImageBox as={"img"} src={item.images[0]}/>
-              <TextDetail>{item.name}</TextDetail>
-              <TextDetail>₹{item.price}.00</TextDetail>
+              <ImageBox as={"img"} src={mainData.images[0]}/>
+              <TextDetail>{mainData.name}</TextDetail>
+              <TextDetail>₹{mainData.price}.00</TextDetail>
             
             </MapList>
           ))}

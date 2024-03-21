@@ -411,6 +411,8 @@ function Home() {
   // const [showCart,setShowCart]=useState(false)
   
 
+  const token = localStorage.getItem("token")
+
 
 
   const imageArr=["https://skybags.co.in/cdn/shop/files/swirl_2048x.png?v=1698312347",
@@ -443,33 +445,81 @@ const instaVideos=[
   },[])
 
   const handleImageOne=()=>{
-    navigate(`/detail/${1}`)
+    if(token){
+      navigate(`/detail/${1}`)
+    }
+    else{
+      alert("Please signup")
+    }
+    
   }
 
   const handleImageTwo=()=>{
-    navigate(`/detail/${2}`)
+    if(token){
+      navigate(`/detail/${2}`)
+    }
+    else{
+      alert("Please signup")
+    }
   }
 
   const handleImageThree=()=>{
-    navigate(`/detail/${3}`)
+    if(token){
+      navigate(`/detail/${3}`)
+    }
+    else{
+      alert("Please signup")
+    }
   }
   const handleImageFour=()=>{
-    navigate(`/detail/${4}`)
+    if(token){
+      navigate(`/detail/${4}`)
+    }
+    else{
+      alert("Please signup")
+    }
   }
   const handleImageFive=()=>{
-    navigate(`/detail/${5}`)
+    if(token){
+      navigate(`/detail/${5}`)
+    }
+    else{
+      alert("Please signup")
+    }
   }
   const handleClick=()=>{
-    navigate('/adventure')
+    if(token){
+      navigate('/adventure')
+    }
+    else{
+      alert("Please signup")
+    }
+    
   }
   const handleSchool=()=>{
-    navigate('/school')
+    if(token){
+      navigate('/school')
+    }
+    else{
+      alert("Please signup")
+    }
+    
   }
   const handleCollage=()=>{
-    navigate('/collage')
+    if(token){
+      navigate('/collage')
+    }
+    else{
+      alert("Please signup")
+    }
   }
   const handleTravel=()=>{
-    navigate('/travel')
+    if(token){
+      navigate('/travel')
+    }
+    else{
+      alert("Please signup")
+    }
   }
   const handleNext=()=>{
     setCount(count+1)

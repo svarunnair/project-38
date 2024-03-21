@@ -3,7 +3,9 @@ require("dotenv").config()
 
 
 const authentication=(req,res,next)=>{
+    console.log("headerCheck",req.headers)
     if(!req.headers.authorization){
+        
         res.send("Please login again")
     }
     const token=req.headers.authorization.split(" ")[1]
@@ -15,14 +17,7 @@ const authentication=(req,res,next)=>{
             req.body.userId=decoded.userId
             next()
         }
-        // else{
-
-        //     console.log("decoded",req.body.userId)
-        //     console.log("v",decoded.userId)
-
-
-           
-        // }
+        
       });
 
 }

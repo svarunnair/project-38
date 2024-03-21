@@ -325,58 +325,7 @@
       ]
     }
   ],
-  "signup": [
-    {
-      "email": "eve.holt@reqres.in",
-      "password": "12345",
-      "FirstName": "qq",
-      "LastName": "qq",
-      "mobile": "1111",
-      "DOB": "2024-03-12",
-      "gender": "",
-      "id": 1
-    },
-    {
-      "email": "eve.holt@reqres.in",
-      "password": "12345",
-      "FirstName": "fefrfr",
-      "LastName": "rf",
-      "mobile": "erfefe",
-      "DOB": "2024-03-27",
-      "gender": "",
-      "id": 2
-    },
-    {
-      "email": "eve.holt@reqres.in",
-      "password": "12345",
-      "FirstName": "aa",
-      "LastName": "a",
-      "mobile": "24242",
-      "DOB": "2024-03-19",
-      "gender": "",
-      "id": 3
-    },
-    {
-      "email": "eve.holt@reqres.in",
-      "password": "12345",
-      "FirstName": "dd",
-      "LastName": "ddd",
-      "mobile": "32222",
-      "DOB": "2024-03-26",
-      "gender": "",
-      "id": 4
-    },
-    {
-      "email": "g@gmail.com",
-      "password": "1234",
-      "FirstName": "gokul",
-      "LastName": "l",
-      "mobile": "90902900",
-      "DOB": "2024-02-27",
-      "gender": "",
-      "id": 5
-    }
-  ],
+ 
   "cart": [
     {
       "id": 3,

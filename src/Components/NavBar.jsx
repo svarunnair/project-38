@@ -11,6 +11,10 @@ import NavMenu from './NavMenu';
 import PublicRoutes from '../Routes/PublicRoutes';
 import { useStore } from 'react-redux';
 import Sidebar from './Sidebar';
+import PrivateRoutes from '../Routes/PrivateRoutes';
+import Reminder from './Reminder';
+import Signup from '../Pages/authPage/Signup';
+import Signin from '../Pages/authPage/Signin';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
 
@@ -245,6 +249,7 @@ function NavBar() {
     const [menu,setMenu]=useState(false)
     const [showCart,setshowCart]=useState(false)
    
+    const token=localStorage.getItem("token")
 
     const handleAcc=()=>{
       navigate('/signin')
@@ -255,7 +260,14 @@ const handleCart=()=>{
 }
 
 const handleNew=()=>{
-  navigate('/students')
+  if(token){
+    navigate('/students')
+  }
+  else{
+    alert("Please Login")
+    navigate("/signin")
+  }
+ 
 }
 
 const handleSearch=()=>{
@@ -359,6 +371,7 @@ console.log("show",show)
         
     </OuterContainer>}
     <PublicRoutes />
+    {token?<PrivateRoutes/>:<Signin/>}
     
 
     </>

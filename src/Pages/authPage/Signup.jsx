@@ -192,7 +192,7 @@ function Signup() {
           label="Salutation"
 >
 
-<MenuItem onChange={handleGender}  value={""}>
+<MenuItem onChange={handleGender}  value={gender}>
            
           </MenuItem>
           <MenuItem value={"male"}>Male</MenuItem>

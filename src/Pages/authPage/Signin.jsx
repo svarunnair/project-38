@@ -116,11 +116,13 @@ function Signin() {
 
 console.log("object")
 
+const token=localStorage.getItem("token")
+console.log("tokennnnnnnnn",token)
+
+console.log("tokenLogin",token)
+
     const handleEmail=(e)=>{
        let value=e.target.value 
-       if(!value.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
-        alert("Kindly give the valid Email Id")
-       }
        setEmail(value)
       
     }
@@ -134,9 +136,22 @@ console.log("object")
       email:email,
       password:password
     }
-    dispatch(postSignin(data))
-    alert("Signin Successfull")
-    navigate('/home')
+    if(!email.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+      alert("Kindly give the valid Email Id")
+     }
+     else{
+      dispatch(postSignin(data))
+      if(token){
+        alert("Signin Successfull")
+        navigate("/home")
+      }
+      else{
+        alert("Please signup")
+      }
+      
+      // navigate('/home')
+     }
+    
    }
 
     const handleCreate=()=>{
@@ -162,7 +177,7 @@ console.log("object")
             <InputText sx={{paddingTop:2,fontSize:10,fontWeight:600,}}>PASSWORD</InputText>
             <InputText sx={{paddingTop:2,justifyContent:'right',fontSize:12}}>Forgot?</InputText>
             </DivBox>
-            <OutlinedInput onChange={handlePassword}  sx={{width:"100%",height:35,borderRadius:0}}/>
+            <OutlinedInput type='password' onChange={handlePassword}  sx={{width:"100%",height:35,borderRadius:0}}/>
 
             <ButtonBox onClick={handleClick} sx={{color:'white',position:"static",background:"black",width:"100%",borderRadius:0,":hover":{color:'white',background:"black"}}}>Sign in</ButtonBox>
             <TextBox onClick={handleCreate}>Create Account</TextBox>

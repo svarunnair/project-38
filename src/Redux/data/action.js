@@ -1,5 +1,5 @@
 import axios from "axios"
-
+const token = localStorage.getItem("token")
 
 export const GET_DATA_REQUIEST="GET_DATA_REQUIEST"
 export const GET_DATA_SUCCESS="GET_DATA_SUCCESS"
@@ -221,14 +221,17 @@ const postReviewFailure=()=>{
 
 
 
-export const getData=()=>(dispatch)=>{
+export const getData=(token)=>(dispatch)=>{
+    console.log("tokenzz",token)
     dispatch(getDataRequiest())
     return axios({
-        url:"http://localhost:8000/data",
-        method:"GET"
+        url:"http://localhost:1010/data",
+        method:"GET",
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(getDataSuccess(res.data))
+        console.log("zzzzzzzz",res.data)
     })
     .catch((err)=>{
         dispatch(getDataFailure(err))
@@ -240,7 +243,8 @@ export const getDetail=(id)=>(dispatch)=>{
     dispatch(getDetailRequiest())
     return axios({
         url:`http://localhost:8000/data/${id}`,
-        method:"GET"
+        method:"GET",
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(getDetailSuccess(res.data))
@@ -256,7 +260,8 @@ export const postCart=(data)=>(dispatch)=>{
     return axios({
         url:"http://localhost:8000/cart",
         method:"POST",
-        data
+        data,
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(postCartSuccess(res.data))
@@ -271,6 +276,7 @@ export const getCart=()=>(dispatch)=>{
     return axios({
         url:" http://localhost:8000/cart",
         method:"GET",
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(getCartSuccess(res.data))
@@ -283,9 +289,10 @@ export const getCart=()=>(dispatch)=>{
 export const patchCart=(id,data)=>(dispatch)=>{
     dispatch(patchCartRequiest())
     return axios({
-        url:` http://localhost:8000/cart/${id}`,
+        url:`http://localhost:8000/cart/${id}`,
         method:"PATCH",
-        data
+        data,
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(patchCartSuccess(res.data))
@@ -301,7 +308,8 @@ export const postInfo=(data)=>(dispatch)=>{
     return axios({
         url:"http://localhost:8000/info",
         method:"POST",
-        data
+        data,
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(postInfoSuccess(res.data))
@@ -317,6 +325,7 @@ export const getInfo=()=>(dispatch)=>{
     return axios({
         url:"http://localhost:8000/info",
         method:"GET",
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(getInfoSuccess(res.data))
@@ -332,6 +341,7 @@ export const deleteCart=(id)=>(dispatch)=>{
     return axios({
         url:`http://localhost:8000/cart/${id}`,
         method:"DELETE",
+        Authorization: `Bearer ${token}`,
         
     })
     .then((res)=>{
@@ -359,7 +369,8 @@ export const postReview=(data)=>(dispatch)=>{
     return axios({
         url:"http://localhost:8000/review",
         method:"POST",
-        data
+        data,
+        Authorization: `Bearer ${token}`,
     })
     .then((res)=>{
         dispatch(postReviewSuccess(res.data))
