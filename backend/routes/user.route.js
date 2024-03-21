@@ -30,8 +30,6 @@ userControler.post("/signup",(req,res)=>{
 })
 
 
-
-
 userControler.post("/login",async(req,res)=>{
     const {email,password}=req.body
     const user= await userModel.findOne({email})

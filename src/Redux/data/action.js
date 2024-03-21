@@ -227,7 +227,10 @@ export const getData=(token)=>(dispatch)=>{
     return axios({
         url:"http://localhost:1010/data",
         method:"GET",
-        Authorization: `Bearer ${token}`,
+        headers :{
+            "Authorization": `Bearer ${token}`,
+        }
+        
     })
     .then((res)=>{
         dispatch(getDataSuccess(res.data))
