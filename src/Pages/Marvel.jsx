@@ -154,9 +154,11 @@ function Marvel() {
       navigate(`/detail/${id}`)
     }
 
-    useEffect(()=>{
-       dispatch(getData())
-    },[])
+    useEffect(() => {
+      dispatch(getData(token));
+    }, []);
+  
+    const token=localStorage.getItem("token")
 
    
 
