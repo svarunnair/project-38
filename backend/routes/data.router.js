@@ -5,9 +5,10 @@ const dataControler= Router()
 
 
 dataControler.get("/",async(req,res)=>{
-    const data= await dataModel.find({id:3})
+    const data= await dataModel.find()
     res.send(data)
 })
+
 
 dataControler.post("/",async(req,res)=>{
     const {data,test}=req.body

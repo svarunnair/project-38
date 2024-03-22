@@ -222,6 +222,8 @@ const postReviewFailure=()=>{
 
 
 export const getData=(token)=>(dispatch)=>{
+    
+
     console.log("tokenzz",token)
     dispatch(getDataRequiest())
     return axios({
@@ -234,7 +236,7 @@ export const getData=(token)=>(dispatch)=>{
     })
     .then((res)=>{
         dispatch(getDataSuccess(res.data))
-        console.log("zzzzzzzz",res.data)
+        console.log("zzzzzz",res.data)
     })
     .catch((err)=>{
         dispatch(getDataFailure(err))
