@@ -181,10 +181,7 @@ function Adventure() {
 
 
         <InnerDiv>
-          
-      
-
-   
+    
     {mainData?.map((item)=>(
         <DataMap >
 
@@ -195,11 +192,6 @@ function Adventure() {
         </DataMap>
     ))}
   
-
-
-
-
-
 
         </InnerDiv>
 

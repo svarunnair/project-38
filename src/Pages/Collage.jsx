@@ -150,12 +150,14 @@ function Collage() {
 
     console.log("mainData",mainData)
 
+    const token= localStorage.getItem("token")
+
     const handleProduct=(id)=>{
       navigate(`/detail/${id}`)
     }
 
     useEffect(()=>{
-       dispatch(getData())
+       dispatch(getData(token))
     },[])
 
    

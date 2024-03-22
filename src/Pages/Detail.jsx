@@ -311,6 +311,7 @@ function Detail() {
     const mainData=useSelector((store)=>store.data.getMainData)
     const navigate=useNavigate()
     const [count,setCount]=useState(0)
+  
 
 
     const handleCart=()=>{
@@ -358,8 +359,10 @@ function Detail() {
   }
   console.log("count",count)
 
+  const token=localStorage.getItem("token")
+
   useEffect(()=>{
-     dispatch(getData())
+     dispatch(getData(token))
   },[])
 
   useEffect(()=>{
@@ -385,6 +388,17 @@ function Detail() {
   useEffect(() => {
     return sessionStorage.setItem("show",null)
    }, []);
+
+
+   console.log("datacheck",data)
+
+  //  useEffect(()=>{
+  //     if(Object.keys(mainData).length>0){
+  //       setData(mainData)
+  //     }
+  //   },[mainData])
+
+
 
   return (
     <OuterContainer>
@@ -497,9 +511,9 @@ function Detail() {
           {mainData?.slice(0,5).map((item)=>(
             <MapList>
 
-              <ImageBox as={"img"} src={mainData.images[0]}/>
-              <TextDetail>{mainData.name}</TextDetail>
-              <TextDetail>₹{mainData.price}.00</TextDetail>
+              <ImageBox as={"img"} src={item.images[0]}/>
+              <TextDetail>{item.name}</TextDetail>
+              <TextDetail>₹{item.price}.00</TextDetail>
             
             </MapList>
           ))}

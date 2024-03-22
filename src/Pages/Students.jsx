@@ -146,8 +146,10 @@ function Students() {
   console.log("maiData", mainData);
 
   useEffect(() => {
-    dispatch(getData());
+    dispatch(getData(token));
   }, []);
+
+const token= localStorage.getItem("token")
 
 
 
