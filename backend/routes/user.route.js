@@ -34,6 +34,7 @@ userControler.get("signup",async(req,res)=>{
     // const {name,email,password}=req.body
     console.log("bodyyyyyyyyyyyyyy",req.body)
     const user=await userModel.findOne()
+    console.log(user)
     res.send(user)
 })
 

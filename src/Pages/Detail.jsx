@@ -37,6 +37,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   const ImageBox = styled(Box)(({ theme }) => ({
     // border:"2px solid black",
     width:"100%",
+    cursor:"pointer",
   
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
@@ -383,6 +384,11 @@ function Detail() {
 
   console.log("getDetail",getDetail)
 
+  const handleSug=(id)=>{
+    navigate(`/detail/${id}`)
+    window.location.reload()
+   
+  }
 
 
   useEffect(() => {
@@ -511,7 +517,7 @@ function Detail() {
           {mainData?.slice(0,5).map((item)=>(
             <MapList>
 
-              <ImageBox as={"img"} src={item.images[0]}/>
+              <ImageBox onClick={()=>handleSug(item.id)} as={"img"} src={item.images[0]}/>
               <TextDetail>{item.name}</TextDetail>
               <TextDetail>₹{item.price}.00</TextDetail>
             
