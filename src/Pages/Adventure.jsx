@@ -146,6 +146,7 @@ function Adventure() {
     const loading=useSelector((store)=>store.data.isLoading)
     const dispatch=useDispatch()
     const navigate=useNavigate()
+    const [data,setData]=useState("")
    
     console.log("loading",loading)
 
@@ -159,7 +160,13 @@ function Adventure() {
        dispatch(getData(token))
     },[])
 
-    
+    useEffect(()=>{
+          if(Object.keys(mainData).length>0){
+            setData(mainData)
+          }
+        },[mainData])
+
+        console.log("dddddd",data)
 
    
 
@@ -182,7 +189,7 @@ function Adventure() {
 
         <InnerDiv>
     
-    {mainData?.map((item)=>(
+    {data?.map((item)=>(
         <DataMap >
 
             <ImageBox onClick={()=>handleProduct(item?.id)} as={"img"} src={item?.images[2]}/>
