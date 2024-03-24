@@ -168,6 +168,7 @@ function Adventure() {
 
         console.log("dddddd",data)
         console.log("object")
+        console.log("object")
 
    
 
