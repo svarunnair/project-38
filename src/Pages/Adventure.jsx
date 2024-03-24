@@ -146,7 +146,7 @@ function Adventure() {
     const loading=useSelector((store)=>store.data.isLoading)
     const dispatch=useDispatch()
     const navigate=useNavigate()
-    const [data,setData]=useState("")
+    const [data,setData]=useState([])
    
     console.log("loading",loading)
 
@@ -161,16 +161,12 @@ function Adventure() {
     },[])
 
     useEffect(()=>{
-          if(Object.keys(mainData).length>0){
-            setData(mainData)
-          }
-        },[mainData])
-
+     if( mainData.length>0){
+      setData(mainData)
+     }
+    },[mainData])
         console.log("dddddd",data)
-        console.log("object")
-        console.log("object")
 
-   
 
   return (
 

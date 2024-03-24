@@ -145,6 +145,7 @@ function Collage() {
     const loading=useSelector((store)=>store.data.isLoading)
     const dispatch=useDispatch()
     const navigate=useNavigate()
+    const [data,setData]=useState([])
    
     console.log("loading",loading)
 
@@ -160,6 +161,12 @@ function Collage() {
        dispatch(getData(token))
     },[])
 
+    useEffect(()=>{
+     if( mainData.length>0){
+      setData(mainData)
+     }
+    },[mainData])
+        console.log("dddddd",data)
    
 
   return (
@@ -182,7 +189,7 @@ function Collage() {
         <InnerDiv>
 
 
-    {mainData?.map((item)=>(
+    {data?.map((item)=>(
         <DataMap >
 
             <ImageBox onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[1]}/>

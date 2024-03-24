@@ -143,11 +143,13 @@ function School() {
     sessionStorage.setItem("show", "one")
   }
 
+   const token = localStorage.getItem("token")
+
   console.log("maiData", mainData);
 
   useEffect(() => {
-    dispatch(getData());
-  }, []);
+    dispatch(getData(token));
+  }, []);  
 
 
 
