@@ -71,7 +71,7 @@ const testDataRequiest=()=>{
 const testDataSuccess=(data)=>{
     return({
         type:TEST_DATA_SUCCESS,
-        payload:data
+        payload:data 
     })
 }
 const testDataFailure=()=>{
@@ -372,8 +372,7 @@ export const postReview=(data)=>(dispatch)=>{
     return axios({
         url:"http://localhost:8000/review",
         method:"POST",
-        data,
-        Authorization: `Bearer ${token}`,
+        data
     })
     .then((res)=>{
         dispatch(postReviewSuccess(res.data))
