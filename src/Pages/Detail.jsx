@@ -308,7 +308,7 @@ function Detail() {
     const params=useParams()
     const detail=useSelector((store)=>store.data.getDetailData)
     const dispatch=useDispatch()
-    const [data,setData]=useState('')
+    const [data,setData]=useState([])
     const mainData=useSelector((store)=>store.data.getMainData)
     const navigate=useNavigate()
     const [count,setCount]=useState(0)
@@ -399,7 +399,7 @@ function Detail() {
    console.log("datacheck",data)
 
   //  useEffect(()=>{
-  //     if(Object.keys(mainData).length>0){
+  //     if(mainData.length>0){
   //       setData(mainData)
   //     }
   //   },[mainData])

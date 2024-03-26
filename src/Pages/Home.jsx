@@ -9,8 +9,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import SimpleImageSlider from 'react-simple-image-slider/dist/ImageSlider';
-import SimpleImageSlider from "react-simple-image-slider";
-import Sidebar from '../Components/Sidebar';
+
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -539,6 +538,10 @@ const instaVideos=[
   const handleImage=()=>{
     navigate('/adventure')
   }
+
+
+
+
 
 
   return (

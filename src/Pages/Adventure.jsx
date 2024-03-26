@@ -161,12 +161,14 @@ function Adventure() {
     },[])
 
     useEffect(()=>{
-     if( mainData.length>0){
+     if(mainData?.length!==undefined){
+      console.log("dddddd",data)
       setData(mainData)
      }
     },[mainData])
-        console.log("dddddd",data)
-        console.log("object")
+    
+        
+        
 
 
   return (
