@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import { useLocation } from 'react-router-dom';
 import NavMenu from './Components/NavMenu';
 import Sidebar from './Components/Sidebar';
+import VideoSlider from './Components/VideoSlider';
 
 function App() {
   const path=useLocation()
@@ -16,8 +17,10 @@ function App() {
   return (
     <div className="App">
      
-       {path.pathname!=="/payment"&&<NavBar/>}      
-       {path.pathname!=="/payment"&&<Footer/>} 
+       {/* {path.pathname!=="/payment"&&<NavBar/>}      
+       {path.pathname!=="/payment"&&<Footer/>}  */}
+
+       <VideoSlider/>
    
     </div>
   );

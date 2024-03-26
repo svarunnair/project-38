@@ -8,6 +8,7 @@ import { getData } from '../Redux/data/action';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import VideoSlider from '../Components/VideoSlider';
 // import SimpleImageSlider from 'react-simple-image-slider/dist/ImageSlider';
 
 
@@ -555,6 +556,8 @@ const instaVideos=[
             <video width={"100%"}   autoPlay muted loop src={skybag2} />
 
 </VideoDiv>
+
+<VideoSlider/>
 
 <OptionDiv>
   <TextTitle onClick={handleClick}>ARCHIES</TextTitle>
