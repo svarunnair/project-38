@@ -359,6 +359,7 @@ function Detail() {
     }
   }
   console.log("count",count)
+  console.log("object")
 
   const token=localStorage.getItem("token")
 
