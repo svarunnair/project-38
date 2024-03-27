@@ -17,10 +17,10 @@ function App() {
   return (
     <div className="App">
      
-       {/* {path.pathname!=="/payment"&&<NavBar/>}      
-       {path.pathname!=="/payment"&&<Footer/>}  */}
+       {path.pathname!=="/payment"&&<NavBar/>}      
+       {path.pathname!=="/payment"&&<Footer/>} 
 
-       <VideoSlider/>
+      
    
     </div>
   );

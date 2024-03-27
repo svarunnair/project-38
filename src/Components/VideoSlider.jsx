@@ -15,13 +15,13 @@ function VideoSlider() {
 
     const VideoData=data[image]
 
-    console.log("object",data)
+    // console.log("object",data)
 
-    useEffect(()=>{
-      setInterval(()=>{
-        
-      })
-    },[])
+    // // useEffect(()=>{
+    // //   setInterval(()=>{
+    // //     setImage(image=>image<1?image+1:0)
+    // //   },4000)
+    // // },[])
 
 
   return (
